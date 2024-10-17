@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgiay576fyrov"]
+
+[ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
+sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
+sky_horizon_color = Color(0.731989, 0.725766, 0.718069, 1)
+ground_horizon_color = Color(0.731989, 0.725766, 0.718069, 1)
+
+[sub_resource type="Sky" id="Sky_u0jlq"]
+sky_material = SubResource("ProceduralSkyMaterial_phl1p")
+
+[sub_resource type="Environment" id="Environment_c75y1"]
+background_mode = 2
+sky = SubResource("Sky_u0jlq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h0nvv"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4347o"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q02m4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c75y1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.871214, 0.490904, 2.14581e-08, 0, -4.37114e-08, 1, 0.490904, 0.871214, 3.8082e-08, 0, 0, 0)
+light_color = Color(0.404415, 1, 0.998173, 1)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_h0nvv")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_4347o")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74433, 1.33228, 6.96859)
+mesh = SubResource("CylinderMesh_q02m4")
+
+[node name="Player" parent="." instance=ExtResource("1_2usqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0968397, 0.852448, 0.132864)
