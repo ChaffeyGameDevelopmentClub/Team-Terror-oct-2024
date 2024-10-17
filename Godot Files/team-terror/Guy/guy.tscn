@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2f7i4bxpyft8"]
+
+[ext_resource type="Script" path="res://node_3d.gd" id="1_xv5nx"]
+[ext_resource type="PackedScene" uid="uid://cs7og7616egsa" path="res://Assets/Herobrine/fella.glb" id="2_j03eh"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_xv5nx")
+
+[node name="fella" parent="." instance=ExtResource("2_j03eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.66592, 0, -2.0069)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="fella"]
+
+[node name="Camera3D" type="Camera3D" parent="fella"]
+transform = Transform3D(0.00530284, -0.118664, 0.99292, 0.000633733, 0.992934, 0.118662, -0.999986, -5.09312e-10, 0.00534058, 11.4049, 12.309, -0.367373)
