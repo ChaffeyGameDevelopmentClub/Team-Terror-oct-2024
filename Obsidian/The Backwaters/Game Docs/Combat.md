@@ -1,3 +1,3 @@
 # Enemies
 
-- ## Freaky Bob
+- ## Bell Hop Bob
