@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Game Doc"
+              "title": "Puzzle-Solving"
             }
           }
         ]
@@ -111,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +121,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Game Doc"
+              "title": "Backlinks for Puzzle-Solving"
             }
           },
           {
@@ -130,12 +130,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Game Doc"
+              "title": "Outgoing links from Puzzle-Solving"
             }
           },
           {
@@ -157,10 +157,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Game Docs/Game Doc.md"
+                "file": "Game Docs/Puzzle-Solving.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Game Doc"
+              "title": "Outline of Puzzle-Solving"
             }
           }
         ]
@@ -182,11 +182,11 @@
   },
   "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
-    "Game Docs/Combat.md",
-    "Game Docs/Game Doc.md",
     "Game Docs/Gameplay Mechanics.md",
-    "Game Docs/Soundtrack.md",
+    "Game Docs/Game Doc.md",
+    "Game Docs/Combat.md",
     "Game Docs/Puzzle-Solving.md",
+    "Game Docs/Soundtrack.md",
     "Library.md",
     "Story/Grist Mill.md",
     "Story/Moe's Hotel.md",
