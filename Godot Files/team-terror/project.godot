@@ -17,7 +17,8 @@ config/icon="res://Assets/icon.svg"
 [file_customization]
 
 folder_colors={
-"res://Player/": "green"
+"res://Player/": "green",
+"res://Shaders/": "yellow"
 }
 
 [input]

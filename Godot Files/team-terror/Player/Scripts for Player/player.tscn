@@ -1,18 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://do73ciyy4senj"]
+[gd_scene load_steps=4 format=3 uid="uid://do73ciyy4senj"]
 
 [ext_resource type="Script" path="res://Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
-[ext_resource type="Shader" path="res://Player/Scripts for Player/test.gdshader" id="2_pmgjj"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uuqy2"]
-render_priority = 0
-shader = ExtResource("2_pmgjj")
-shader_parameter/outerRadius = 0.96
-shader_parameter/MainAlpha = 1.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_f7v8v"]
-flip_faces = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_syjgj"]
 height = 4.05675
@@ -33,13 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804477, -0.0661726)
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
 current = true
 fov = 50.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0103908, -0.150148)
-material_override = SubResource("ShaderMaterial_uuqy2")
-extra_cull_margin = 16384.0
-mesh = SubResource("PlaneMesh_f7v8v")
-skeleton = NodePath("../../../CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
