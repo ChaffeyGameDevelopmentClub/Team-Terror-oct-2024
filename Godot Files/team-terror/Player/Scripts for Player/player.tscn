@@ -18,6 +18,7 @@ stream = ExtResource("1_lgmok")
 stream = ExtResource("2_iwfo3")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk", "Run")]
+process_mode = 3
 script = ExtResource("1_n3sex")
 Walk = NodePath("../Walk")
 Run = NodePath("../Run")
