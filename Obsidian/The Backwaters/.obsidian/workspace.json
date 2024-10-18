@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "41af64302083f961",
+        "id": "9b0b1ea072b5c011",
         "type": "tabs",
         "children": [
           {
-            "id": "9cb4e262c4437978",
+            "id": "4ede9c6a0d2f01e4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -26,11 +26,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "df58184ab27caec7",
+            "id": "9cb4e262c4437978",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "graph",
-              "state": {}
+              "state": {},
+              "pinned": true
             }
           }
         ]
@@ -160,11 +162,32 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9cb4e262c4437978",
+  "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
+    "Game Docs/Combat.md",
     "Game Docs/Game Doc.md",
-    "Game Docs",
+    "Game Docs/Soundtrack.md",
+    "Game Docs/Puzzle-Solving.md",
+    "Game Docs/Gameplay Mechanics.md",
+    "Story/Grist Mill.md",
+    "Story/Moe's Hotel.md",
+    "Story",
+    "Ref/Pasted image 20241017194853.png",
+    "Ref",
+    "Ref/Visual Style.md",
     "Untitled.canvas",
+    "Untitled 1.canvas",
+    "Ref/Pasted image 20241017194921.png",
+    "Ref/Pasted image 20241017194918.png",
+    "Ref/Pasted image 20241017194915.png",
+    "Ref/Pasted image 20241017194910.png",
+    "Ref/Pasted image 20241017194906.png",
+    "Ref/Pasted image 20241017194903.png",
+    "Ref/Pasted image 20241017194900.png",
+    "Ref/Pasted image 20241017194857.png",
+    "Story/Story.md",
+    "Exploration.md",
+    "Game Docs",
     "Untitled.md",
     "Welcome.md"
   ]

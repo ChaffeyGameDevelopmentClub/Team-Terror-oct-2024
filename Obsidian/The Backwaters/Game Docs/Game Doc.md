@@ -5,20 +5,27 @@ Concept: You find yourself in this old backwater logging town and after a nights
 
 
 [[Story]]:
-	Your cousin calls for help desperately so you decide to make your way across the country. On your way you stop in the Backwater town of Wolf Creek, Ohio. You find yourself at a old run down motel, [[Moe's Hotel]]
+	Your cousin calls for help desperately so you decide to make your way across the country. On your way you stop in the Backwater town of Wolf Creek, Ohio. You find yourself at a old run down motel, [[Moe's Hotel]]. 
 
 [[Gameplay Mechanics]]:
+	3d Audio
+	Chases
+	Puzzles
 	
 
 [[Puzzle-Solving]]:
 	
 [[Combat]]:
 	Use environment to fight
-[[Exploration]]:
-	
+Exploration:
+	1.[[Moe's Hotel]]
+	2.
+	3.
+	4.
+	5.[[Grist Mill]]
 
 [[Visual Style]]:
-	
+	Ref Images
 
 [[Soundtrack]]:
 	
