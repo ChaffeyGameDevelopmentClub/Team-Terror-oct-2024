@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Puzzle-Solving.md",
+                "file": "Characters.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Puzzle-Solving"
+              "title": "Characters"
             }
           }
         ]
@@ -182,17 +182,18 @@
   },
   "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
+    "Story/Story.md",
+    "Story/Moe's Hotel.md",
+    "Story/Grist Mill.md",
+    "Chats/New Chat.md",
     "Game Docs/Gameplay Mechanics.md",
+    "Game Docs/Combat.md",
     "Game Docs/Game Doc.md",
     "Game Docs/Puzzle-Solving.md",
-    "Game Docs/Combat.md",
     "Game Docs/Soundtrack.md",
-    "Chats/New Chat.md",
     "Chats",
     "Characters.md",
     "Library.md",
-    "Story/Grist Mill.md",
-    "Story/Moe's Hotel.md",
     "Story",
     "Ref/Pasted image 20241017194853.png",
     "Ref",
@@ -207,7 +208,6 @@
     "Ref/Pasted image 20241017194903.png",
     "Ref/Pasted image 20241017194900.png",
     "Ref/Pasted image 20241017194857.png",
-    "Story/Story.md",
     "Exploration.md",
     "Game Docs",
     "Untitled.md",

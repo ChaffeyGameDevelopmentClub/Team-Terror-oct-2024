@@ -16,4 +16,10 @@ The second puzzle would be in the library area(?) where there are books to read 
 -The other book is a self help book with 5 tips to a happier life with the number 4 being scratched up. The readable date is 17xxx.
 The answer would be 4342
 THEN THE CHASE SEQUENCE WOA
-maybe a time limit idk lawl
+maybe a time limit idk lawl OR something else you can make me CRY about it man
+
+THE LAST PUZZLE IS A DOOZY SO LISTEN UP
+kill the monster find a weapon that the monster is weak to
+
+Freakbob puzzle
+Don't let him get you.
