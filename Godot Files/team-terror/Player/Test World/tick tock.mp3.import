@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6bi1houv2e6x"
+path="res://.godot/imported/tick tock.mp3-6ff0833041f30a78dc87a4480d0a0bdd.mp3str"
+
+[deps]
+
+source_file="res://Player/Test World/tick tock.mp3"
+dest_files=["res://.godot/imported/tick tock.mp3-6ff0833041f30a78dc87a4480d0a0bdd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
