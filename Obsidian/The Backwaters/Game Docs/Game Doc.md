@@ -1,0 +1,25 @@
+#GameDocs
+Title: The Backwaters
+Genre: Horror / Puzzle / Exploration
+Concept: You find yourself in this old backwater logging town and after a nights rest you wake to see the world look different. You must fight for your life and try to escape this town.
+
+
+[[Story]]:
+	Your cousin calls for help desperately so you decide to make your way across the country. On your way you stop in the Backwater town of Wolf Creek, Ohio. You find yourself at a old run down motel, [[Moe's Hotel]]
+
+[[Gameplay Mechanics]]:
+	
+
+[[Puzzle-Solving]]:
+	
+[[Combat]]:
+	Use environment to fight
+[[Exploration]]:
+	
+
+[[Visual Style]]:
+	
+
+[[Soundtrack]]:
+	
+
