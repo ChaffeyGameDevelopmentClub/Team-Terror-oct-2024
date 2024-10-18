@@ -5,14 +5,20 @@ extends CharacterBody3D
 const JUMP_VELOCITY = 4.5
 #Speed and camera sensitivity vars
 @export var sensitivity_camera = .001
-@export var player_speed = 5.0
+@export var player_speed = 2.5
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+@onready var health = 2
+@onready var stamina=100
+@onready var isSprint= false
+@onready var isTired= false
 
 #Camera effects
 @export var camera_fov =50
 @export var camera_color = 0
+
 func _unhandled_input(event: InputEvent) -> void:
+	clamp(stamina,0,200)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
@@ -41,6 +47,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, player_speed)
 		velocity.z = move_toward(velocity.z, 0, player_speed)
 	camera.fov=lerp(camera.fov,float(camera_fov),.1)
+	if direction and isSprint==true and isTired!=true:
+		stamina -= 2
+	else:
+		if stamina < 200:
+			stamina +=1
+	if stamina <10:
+		isTired=true
+	elif stamina>180:
+		isTired=false
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -50,4 +65,10 @@ func _input(event: InputEvent) -> void:
 		camera_fov -=10
 	if Input.is_action_just_pressed("exit_test"):
 		get_tree().quit()
+	if Input.is_action_pressed("sprint") and isTired==false:
+		player_speed = 6
+		isSprint=true
+	else: 
+		player_speed = 2.5
+		isSprint=false
 	pass
