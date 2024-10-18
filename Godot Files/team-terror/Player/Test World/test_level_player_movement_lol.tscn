@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
-[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="2_ib0md"]
+[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/weird Model/Werid.glb" id="2_ib0md"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
