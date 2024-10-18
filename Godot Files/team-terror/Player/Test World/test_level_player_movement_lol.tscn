@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bgiay576fyrov"]
+[gd_scene load_steps=18 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
 [ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="2_ib0md"]
 [ext_resource type="AudioStream" uid="uid://c6bi1houv2e6x" path="res://Player/Test World/tick tock.mp3" id="4_qxjj1"]
+[ext_resource type="PackedScene" uid="uid://bbfhld8mnxdd6" path="res://Assets/Transition Door/door.glb" id="5_ij0ew"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
@@ -39,6 +40,8 @@ material = SubResource("ShaderMaterial_t2x35")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qoakb"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c1fen"]
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("BackgroundTest")]
 script = ExtResource("1_tgoim")
@@ -102,3 +105,12 @@ mesh = SubResource("PlaneMesh_tbdlh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qoakb")
+
+[node name="door" parent="." instance=ExtResource("5_ij0ew")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -19.8911, 0, -38.4962)
+
+[node name="Area3D" type="Area3D" parent="door"]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 4.87643, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Area3D"]
+shape = SubResource("SphereShape3D_c1fen")
