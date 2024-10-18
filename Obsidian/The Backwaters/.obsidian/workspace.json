@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Soundtrack.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Soundtrack"
+              "title": "Puzzle-Solving"
             }
           }
         ]
@@ -180,19 +180,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4ede9c6a0d2f01e4",
+  "active": "9cb4e262c4437978",
   "lastOpenFiles": [
-<<<<<<< Updated upstream
+    "Game Docs/Puzzle-Solving.md",
+    "Game Docs/Gameplay Mechanics.md",
+    "Game Docs/Combat.md",
+    "Game Docs/Game Doc.md",
+    "Game Docs/Soundtrack.md",
     "Chats/New Chat.md",
     "Chats",
     "Characters.md",
-=======
->>>>>>> Stashed changes
-    "Game Docs/Game Doc.md",
-    "Game Docs/Gameplay Mechanics.md",
-    "Game Docs/Puzzle-Solving.md",
-    "Game Docs/Soundtrack.md",
-    "Game Docs/Combat.md",
     "Library.md",
     "Story/Grist Mill.md",
     "Story/Moe's Hotel.md",

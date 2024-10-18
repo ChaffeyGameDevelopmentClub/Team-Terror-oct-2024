@@ -7,3 +7,7 @@ Eating mechanic
 Fine dining mechanic
 Door opening mechanic
 (Ex, every door plays a cutscene that pauses the game that separates the areas )
+
+We can probably make certain objects grabbable such as pieces for a puzzle solving, or making switches that flip such as a circuit puzzle maybe? 
+
+We should probably have a highlight on the objects that are exactly useable or something. Or we can have some text on screen only when the object is being interacted with
