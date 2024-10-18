@@ -6,6 +6,7 @@
       {
         "id": "9b0b1ea072b5c011",
         "type": "tabs",
+        "dimension": 46.3785046728972,
         "children": [
           {
             "id": "4ede9c6a0d2f01e4",
@@ -26,6 +27,7 @@
       {
         "id": "840bdb60effc61c2",
         "type": "tabs",
+        "dimension": 53.62149532710281,
         "children": [
           {
             "id": "9cb4e262c4437978",
@@ -177,12 +179,15 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "smart-second-brain:Open S2B Chat": false
     }
   },
-  "active": "4ede9c6a0d2f01e4",
+  "active": "9cb4e262c4437978",
   "lastOpenFiles": [
+    "Characters.md",
     "Story/Story.md",
+    "Cult ranks.canvas",
     "Story/Moe's Hotel.md",
     "Story/Grist Mill.md",
     "Chats/New Chat.md",
@@ -192,13 +197,11 @@
     "Game Docs/Puzzle-Solving.md",
     "Game Docs/Soundtrack.md",
     "Chats",
-    "Characters.md",
     "Library.md",
     "Story",
     "Ref/Pasted image 20241017194853.png",
     "Ref",
     "Ref/Visual Style.md",
-    "Untitled.canvas",
     "Untitled 1.canvas",
     "Ref/Pasted image 20241017194921.png",
     "Ref/Pasted image 20241017194918.png",
