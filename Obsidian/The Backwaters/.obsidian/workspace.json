@@ -180,12 +180,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9cb4e262c4437978",
+  "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
-    "Game Docs/Puzzle-Solving.md",
     "Game Docs/Gameplay Mechanics.md",
-    "Game Docs/Combat.md",
     "Game Docs/Game Doc.md",
+    "Game Docs/Puzzle-Solving.md",
+    "Game Docs/Combat.md",
     "Game Docs/Soundtrack.md",
     "Chats/New Chat.md",
     "Chats",
