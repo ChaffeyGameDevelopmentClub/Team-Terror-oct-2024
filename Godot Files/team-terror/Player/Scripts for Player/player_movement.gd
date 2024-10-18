@@ -74,7 +74,7 @@ func _input(event: InputEvent) -> void:
 	else: 
 		player_speed = 2.5
 		isSprint=false
-	if velocity.x!=0 and velocity.z!=0 and isSound != true:
+	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
 		isSound = true
 		Walk.play()
 		await(Walk.finished)
