@@ -19,7 +19,7 @@ Concept: You find yourself in this old backwater logging town and after a nights
 	Use environment to fight
 Exploration:
 	1.[[Moe's Hotel]]
-	2.
+	2.[[Library]]
 	3.
 	4.
 	5.[[Grist Mill]]

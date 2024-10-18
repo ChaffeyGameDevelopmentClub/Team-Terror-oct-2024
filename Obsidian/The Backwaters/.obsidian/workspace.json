@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Story/Story.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Story/Story.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Story/Story.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Game Docs/Game Doc.md"
+                "file": "Story/Story.md"
               }
             }
           }
@@ -149,8 +149,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -164,8 +163,10 @@
   },
   "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
-    "Game Docs/Combat.md",
     "Game Docs/Game Doc.md",
+    "Library.md",
+    "Story/Story.md",
+    "Game Docs/Combat.md",
     "Game Docs/Soundtrack.md",
     "Game Docs/Puzzle-Solving.md",
     "Game Docs/Gameplay Mechanics.md",
@@ -185,7 +186,6 @@
     "Ref/Pasted image 20241017194903.png",
     "Ref/Pasted image 20241017194900.png",
     "Ref/Pasted image 20241017194857.png",
-    "Story/Story.md",
     "Exploration.md",
     "Game Docs",
     "Untitled.md",
