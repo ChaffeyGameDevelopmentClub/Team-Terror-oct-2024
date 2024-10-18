@@ -6,6 +6,7 @@
       {
         "id": "9b0b1ea072b5c011",
         "type": "tabs",
+        "dimension": 59.192037470726,
         "children": [
           {
             "id": "4ede9c6a0d2f01e4",
@@ -13,12 +14,10 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Puzzle-Solving.md",
+                "file": "Game Docs/Game Doc.md",
                 "mode": "source",
                 "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Puzzle-Solving"
+              }
             }
           }
         ]
@@ -26,6 +25,7 @@
       {
         "id": "840bdb60effc61c2",
         "type": "tabs",
+        "dimension": 40.80796252927401,
         "children": [
           {
             "id": "9cb4e262c4437978",
@@ -34,9 +34,7 @@
             "state": {
               "type": "graph",
               "state": {},
-              "pinned": true,
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "pinned": true
             }
           }
         ]
@@ -59,9 +57,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
+              }
             }
           },
           {
@@ -76,9 +72,7 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-search",
-              "title": "Search"
+              }
             }
           },
           {
@@ -86,16 +80,14 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {},
-              "icon": "lucide-bookmark",
-              "title": "Bookmarks"
+              "state": {}
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 288.5
+    "width": 300
   },
   "right": {
     "id": "6fe25d19f2e942a7",
@@ -111,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Docs/Puzzle-Solving.md",
+                "file": "Game Docs/Game Doc.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,9 +111,7 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Puzzle-Solving"
+              }
             }
           },
           {
@@ -130,12 +120,10 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Game Docs/Puzzle-Solving.md",
+                "file": "Game Docs/Game Doc.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from Puzzle-Solving"
+              }
             }
           },
           {
@@ -146,9 +134,7 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              }
             }
           },
           {
@@ -157,18 +143,36 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Game Docs/Puzzle-Solving.md"
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Puzzle-Solving"
+                "file": "Game Docs/Game Doc.md"
+              }
+            }
+          },
+          {
+            "id": "e7eb6efea7a2efd0",
+            "type": "leaf",
+            "state": {
+              "type": "chat-view",
+              "state": {
+                "file": "Chats/New Chat.md"
+              }
+            }
+          },
+          {
+            "id": "3ac267068c8798e1",
+            "type": "leaf",
+            "state": {
+              "type": "chat-view",
+              "state": {
+                "file": "Chats/New Chat.md"
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 507.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,17 +181,23 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "smart-second-brain:Open S2B Chat": false
     }
   },
   "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
-    "Game Docs/Gameplay Mechanics.md",
+    "Characters.md",
     "Game Docs/Game Doc.md",
-    "Game Docs/Combat.md",
+    "Story/Story.md",
     "Game Docs/Puzzle-Solving.md",
-    "Game Docs/Soundtrack.md",
+    "Chats/New Chat.md",
+    "The Disguised Object.md",
+    "Chats",
     "Library.md",
+    "Game Docs/Combat.md",
+    "Game Docs/Soundtrack.md",
+    "Game Docs/Gameplay Mechanics.md",
     "Story/Grist Mill.md",
     "Story/Moe's Hotel.md",
     "Story",
@@ -204,7 +214,6 @@
     "Ref/Pasted image 20241017194903.png",
     "Ref/Pasted image 20241017194900.png",
     "Ref/Pasted image 20241017194857.png",
-    "Story/Story.md",
     "Exploration.md",
     "Game Docs",
     "Untitled.md",
