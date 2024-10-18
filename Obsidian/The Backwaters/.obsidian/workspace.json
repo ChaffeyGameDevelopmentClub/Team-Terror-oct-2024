@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Puzzle-Solving"
             }
           }
         ]
@@ -32,7 +34,9 @@
             "state": {
               "type": "graph",
               "state": {},
-              "pinned": true
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -55,7 +59,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -70,7 +76,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -78,7 +86,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -101,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,7 +119,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Puzzle-Solving"
             }
           },
           {
@@ -118,10 +130,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Game Docs/Game Doc.md",
+                "file": "Game Docs/Puzzle-Solving.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Puzzle-Solving"
             }
           },
           {
@@ -132,7 +146,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -141,8 +157,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Game Docs/Game Doc.md"
-              }
+                "file": "Game Docs/Puzzle-Solving.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Puzzle-Solving"
             }
           }
         ]
@@ -164,11 +182,11 @@
   },
   "active": "4ede9c6a0d2f01e4",
   "lastOpenFiles": [
-    "Game Docs/Combat.md",
-    "Game Docs/Game Doc.md",
-    "Game Docs/Soundtrack.md",
-    "Game Docs/Puzzle-Solving.md",
     "Game Docs/Gameplay Mechanics.md",
+    "Game Docs/Puzzle-Solving.md",
+    "Game Docs/Soundtrack.md",
+    "Game Docs/Game Doc.md",
+    "Game Docs/Combat.md",
     "Story/Grist Mill.md",
     "Story/Moe's Hotel.md",
     "Story",
