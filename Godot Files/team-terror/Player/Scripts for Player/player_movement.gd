@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-
+#SFX
+@export var Walk: AudioStreamPlayer
+@export var Run: AudioStreamPlayer
 #I didn't finish this oops
 const JUMP_VELOCITY = 4.5
 #Speed and camera sensitivity vars
@@ -12,7 +14,7 @@ const JUMP_VELOCITY = 4.5
 @onready var stamina=100
 @onready var isSprint= false
 @onready var isTired= false
-
+@onready var isSound= false
 #Camera effects
 @export var camera_fov =50
 @export var camera_color = 0
@@ -56,7 +58,9 @@ func _physics_process(delta: float) -> void:
 		isTired=true
 	elif stamina>180:
 		isTired=false
+	
 	move_and_slide()
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("test_inp_1"):
@@ -71,4 +75,12 @@ func _input(event: InputEvent) -> void:
 	else: 
 		player_speed = 2.5
 		isSprint=false
+	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
+		isSound = true
+		Walk.play()
+		await(Walk.finished)
+		isSound=false
+		pass
+	if Input.is_action_just_pressed("test3"):
+		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass

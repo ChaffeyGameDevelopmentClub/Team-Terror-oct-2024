@@ -1,29 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://do73ciyy4senj"]
+[gd_scene load_steps=6 format=3 uid="uid://do73ciyy4senj"]
 
+[ext_resource type="AudioStream" uid="uid://tkgqyjo6rrr2" path="res://Assets/all sfx/Player_SFX/walk.mp3" id="1_lgmok"]
 [ext_resource type="Script" path="res://Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
+[ext_resource type="AudioStream" uid="uid://cm8fbo34x2p86" path="res://Assets/all sfx/Player_SFX/run.mp3" id="2_iwfo3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_syjgj"]
-height = 4.05675
+radius = 0.11
+height = 14.408
 
 [node name="Player" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("1_n3sex")
+[node name="Run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_lgmok")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iwfo3")
+
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk", "Run")]
+process_mode = 3
+script = ExtResource("1_n3sex")
+Walk = NodePath("../Walk")
+Run = NodePath("../Run")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
 mesh = SubResource("CylinderMesh_swd4v")
 skeleton = NodePath("../..")
 
-[node name="Neck" type="Node3D" parent="CharacterBody3D"]
+[node name="Neck" type="Node3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804477, -0.0661726)
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
+[node name="Camera3D" type="Camera3D" parent="Player/Neck"]
 current = true
 fov = 50.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
 shape = SubResource("CapsuleShape3D_syjgj")
