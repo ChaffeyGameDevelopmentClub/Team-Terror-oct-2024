@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
-[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="2_ib0md"]
+[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/weird Model/Werid.glb" id="2_ib0md"]
 [ext_resource type="PackedScene" uid="uid://mem4nbmikwfm" path="res://Transitions/door_transition.tscn" id="4_gcdxx"]
 [ext_resource type="AudioStream" uid="uid://c6bi1houv2e6x" path="res://Assets/all sfx/ambience/tick tock.mp3" id="4_qxjj1"]
-[ext_resource type="PackedScene" uid="uid://cmus8sya0goou" path="res://Player/Test World/harmblock.tscn" id="6_cypbn"]
+[ext_resource type="PackedScene" path="res://Player/Test World/harmblock.tscn" id="6_cypbn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)

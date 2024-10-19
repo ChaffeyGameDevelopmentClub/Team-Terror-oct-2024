@@ -7,7 +7,7 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_syjgj"]
-radius = 0.11
+radius = 1.99697
 height = 14.408
 
 [node name="Player" type="Node3D"]
@@ -26,6 +26,7 @@ Run = NodePath("../Run")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
+visible = false
 mesh = SubResource("CylinderMesh_swd4v")
 skeleton = NodePath("../..")
 

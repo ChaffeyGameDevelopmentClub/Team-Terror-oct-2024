@@ -25,7 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
 		camera.rotate_x(-event.relative.y*sensitivity_camera)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
 		pass
 	pass
 	
@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, player_speed)
 		velocity.z = move_toward(velocity.z, 0, player_speed)
 	camera.fov=lerp(camera.fov,float(camera_fov),.1)
+	#Sprint
 	if direction and isSprint==true and isTired!=true:
 		stamina -= 2
 	else:
@@ -69,12 +70,19 @@ func _input(event: InputEvent) -> void:
 		camera_fov -=10
 	if Input.is_action_just_pressed("exit_test"):
 		get_tree().quit()
+	#Zoom
+	if Input.is_action_just_pressed('right_click'):
+		camera_fov -= 25
+	if Input.is_action_just_released('right_click'):
+		camera_fov += 25
+	#Sprint
 	if Input.is_action_pressed("sprint") and isTired==false:
 		player_speed = 6
 		isSprint=true
 	else: 
 		player_speed = 2.5
 		isSprint=false
+		
 	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
 		isSound = true
 		Walk.play()
