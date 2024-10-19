@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgiay576fyrov"]
+[gd_scene load_steps=17 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
 [ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="2_ib0md"]
+[ext_resource type="PackedScene" uid="uid://mem4nbmikwfm" path="res://Transitions/door_transition.tscn" id="4_gcdxx"]
 [ext_resource type="AudioStream" uid="uid://c6bi1houv2e6x" path="res://Assets/all sfx/ambience/tick tock.mp3" id="4_qxjj1"]
-[ext_resource type="PackedScene" uid="uid://bbfhld8mnxdd6" path="res://Assets/Transition Door/door.glb" id="5_ij0ew"]
-[ext_resource type="Shader" path="res://Shaders/test.gdshader" id="6_u4y4n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
@@ -41,18 +40,6 @@ material = SubResource("ShaderMaterial_t2x35")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qoakb"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_c1fen"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqjv5"]
-render_priority = 0
-shader = ExtResource("6_u4y4n")
-shader_parameter/_char_size = 8.0
-shader_parameter/_char_count = 10.0
-
-[sub_resource type="QuadMesh" id="QuadMesh_iaq5o"]
-flip_faces = true
-size = Vector2(2, 2)
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("BackgroundTest")]
 script = ExtResource("1_tgoim")
@@ -102,9 +89,6 @@ mesh = SubResource("CylinderMesh_q02m4")
 [node name="Werid" parent="." instance=ExtResource("2_ib0md")]
 transform = Transform3D(0.999991, 0, -0.00422368, 0, 1, 0, 0.00422368, 0, 0.999991, 2.08871, 0.63676, -35.8166)
 
-[node name="Player" parent="." instance=ExtResource("1_2usqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.574406, 3.03502, -15.9033)
-
 [node name="TickTock" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qxjj1")
 
@@ -117,18 +101,8 @@ mesh = SubResource("PlaneMesh_tbdlh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_qoakb")
 
-[node name="door" parent="." instance=ExtResource("5_ij0ew")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -19.8911, 0, -38.4962)
+[node name="Node3D" parent="." instance=ExtResource("4_gcdxx")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -4.26189, 0, -0.608654)
 
-[node name="Area3D" type="Area3D" parent="door"]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 4.87643, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Area3D"]
-shape = SubResource("SphereShape3D_c1fen")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.574406, 3.03502, -15.9033)
-visible = false
-material_override = SubResource("ShaderMaterial_vqjv5")
-mesh = SubResource("QuadMesh_iaq5o")
-skeleton = NodePath("../Player")
+[node name="Player" parent="." instance=ExtResource("1_2usqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80584, 0)

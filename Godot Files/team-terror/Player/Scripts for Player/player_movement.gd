@@ -60,9 +60,7 @@ func _physics_process(delta: float) -> void:
 		isTired=false
 	
 	move_and_slide()
-func _on_body_entered(body: Node3D) -> void:
-	if body.get_name() == "door_transition":
-		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
+
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("test_inp_1"):

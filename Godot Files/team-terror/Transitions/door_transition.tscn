@@ -8,7 +8,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="door" parent="." instance=ExtResource("1_74v2g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274722, 0, 0.420311)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274722, 0.806202, 0.420311)
 
 [node name="Area3D" type="Area3D" parent="door"]
 script = ExtResource("2_m4xlq")
