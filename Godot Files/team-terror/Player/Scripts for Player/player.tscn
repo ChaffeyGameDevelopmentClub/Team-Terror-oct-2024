@@ -40,3 +40,14 @@ fov = 50.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
 shape = SubResource("CapsuleShape3D_syjgj")
+
+[node name="Hand" type="Node3D" parent="Player"]
+
+[node name="Flashlight" type="SpotLight3D" parent="Player/Hand"]
+light_color = Color(0.973063, 0.99249, 0.826257, 1)
+light_volumetric_fog_energy = 3.0
+light_size = 3.18
+light_specular = 2.195
+distance_fade_length = 18.65
+spot_range = 8.00131
+spot_angle = 20.9475

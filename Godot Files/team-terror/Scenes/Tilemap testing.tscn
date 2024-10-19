@@ -34,9 +34,6 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_ra24r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43687, 2.4319, 0.850266)
-
 [node name="OmniLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.75123, -0.149364, 0.642919, -0.656558, -0.269042, 0.704662, 0.0677212, -0.951476, -0.300178, 1.00783, 4.63436, -1.54761)
 light_energy = 3.75
@@ -48,3 +45,6 @@ spot_range = 17.511
 spot_attenuation = 0.75
 spot_angle = 44.44
 spot_angle_attenuation = 1.31951
+
+[node name="Player" parent="." instance=ExtResource("2_ra24r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.28699, 2.36926, 0)

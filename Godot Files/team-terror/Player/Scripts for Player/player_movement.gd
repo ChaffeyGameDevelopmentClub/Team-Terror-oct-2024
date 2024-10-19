@@ -15,10 +15,12 @@ const JUMP_VELOCITY = 4.5
 @onready var isSprint= false
 @onready var isTired= false
 @onready var isSound= false
-#Camera effects
+#Camera effects color might not be used im sorry :(
 @export var camera_fov =50
 @export var camera_color = 0
-
+#Flashlight stuff, first exporting AND THEN KILLING
+@onready var hand :=$Hand
+@onready var flashlight :=$Hand/Flashlight
 func _unhandled_input(event: InputEvent) -> void:
 	clamp(stamina,0,200)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -26,6 +28,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
 		camera.rotate_x(-event.relative.y*sensitivity_camera)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
+		
+		#flashlight rotate moment
+		flashlight.rotate_y(-event.relative.x*sensitivity_camera)
+		flashlight.rotation.z=camera.rotation.z
 		pass
 	pass
 	
