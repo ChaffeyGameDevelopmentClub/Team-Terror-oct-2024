@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Transitions/transitions.gd" id="1_qtx6t"]
 [ext_resource type="Texture2D" uid="uid://bmukqmhbqpma" path="res://Transitions/Asset Transition/door png.png" id="2_j8ohb"]
-[ext_resource type="AudioStream" uid="uid://bi3os52hwrxt4" path="res://Assets/door sfx/door close.mp3" id="3_64w0l"]
-[ext_resource type="AudioStream" uid="uid://btcx87rateg8r" path="res://Assets/door sfx/door open.mp3" id="4_rwwsf"]
+[ext_resource type="AudioStream" uid="uid://bi3os52hwrxt4" path="res://Assets/all sfx/door sfx/door close.mp3" id="3_64w0l"]
+[ext_resource type="AudioStream" uid="uid://btcx87rateg8r" path="res://Assets/all sfx/door sfx/door open.mp3" id="4_rwwsf"]
 
 [sub_resource type="Animation" id="Animation_ju2r6"]
 resource_name = "RESET"
