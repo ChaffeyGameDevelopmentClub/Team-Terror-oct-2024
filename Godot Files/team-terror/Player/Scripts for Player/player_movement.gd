@@ -90,5 +90,5 @@ func _input(event: InputEvent) -> void:
 		isSound=false
 		pass
 	if Input.is_action_just_pressed("test3"):
-		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
+		SceneTransition.open_door_to("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass

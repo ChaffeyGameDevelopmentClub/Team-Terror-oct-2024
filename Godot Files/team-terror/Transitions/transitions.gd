@@ -1,7 +1,8 @@
 extends CanvasLayer
 @export var Open: AudioStreamPlayer
 @export var Close: AudioStreamPlayer
-func scene_transition_cloud(target_scene: String):
+
+func open_door_to(target_scene: String):
 	$AnimationPlayer.play("fadetoblack")
 	Open.play()
 	await($AnimationPlayer.animation_finished)
