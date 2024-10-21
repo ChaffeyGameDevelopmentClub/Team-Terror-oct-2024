@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://chkluhgx06u24"]
-
-[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="1_nb0g4"]
-
-[node name="Movement Testing Scene" type="Node3D"]
-
-[node name="Werid" parent="." instance=ExtResource("1_nb0g4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52931, 0, -0.94719)
