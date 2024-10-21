@@ -44,7 +44,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		pass
 	pass
 
-
+#die
+func _die():
+	pass
 #literally the everything function
 func _physics_process(delta: float) -> void:
 	#flashlight draining
