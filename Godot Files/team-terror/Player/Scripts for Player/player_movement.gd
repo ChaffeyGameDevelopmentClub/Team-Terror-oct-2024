@@ -47,8 +47,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #literally the everything function
 func _physics_process(delta: float) -> void:
-	print(flashlight_battery)
-
 	#flashlight draining
 	if isFlashlighting == true and isFlashingdead == false:
 		flashlight_battery = flashlight_battery - 2
