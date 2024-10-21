@@ -54,7 +54,8 @@ func _process(delta: float) -> void:
 		flashlight_battery = flashlight_battery + .01
 	if flashlight_battery == 2.5:
 		isFlashingdead=false
-		
+	if isFlashlighting ==false:
+		flashlight_battery= flashlight_battery +.01
 #literally the everything function
 func _physics_process(delta: float) -> void:
 
