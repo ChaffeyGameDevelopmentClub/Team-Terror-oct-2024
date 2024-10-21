@@ -23,7 +23,8 @@ const JUMP_VELOCITY = 4.5
 @onready var hand :=$Hand
 @onready var flashlight :=$Hand/Flashlight
 @onready var isFlashlighting= true
-@onready var flashlight_battery = 3.00
+@onready var flashlight_battery = 600
+@onready var max_battery = 700
 @onready var isFlashingdead = false
 #literally the camera function
 func _unhandled_input(event: InputEvent) -> void:
@@ -41,21 +42,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	pass
 
 func _process(delta: float) -> void:
+	print(flashlight_battery)
 	clamp(stamina,0,max_stamina)
-	clamp(flashlight_battery, 0 , 3.5)
+	clamp(flashlight_battery,0 ,max_battery)
 	#flashlight draining
 	if isFlashlighting == true and isFlashingdead == false:
-		flashlight_battery = flashlight_battery - .001
-	if flashlight_battery < .5:
+		flashlight_battery = flashlight_battery - 2
+	if flashlight_battery < 20:
 		flashlight_battery = 0
 		isFlashingdead = true
 		isFlashlighting=false
-	if isFlashingdead == true:
-		flashlight_battery = flashlight_battery + .01
-	if flashlight_battery == 2.5:
+	if isFlashingdead == true or isFlashlighting==false:
+		flashlight_battery = flashlight_battery + 1
+	if flashlight_battery == 200:
 		isFlashingdead=false
-	if isFlashlighting ==false:
-		flashlight_battery= flashlight_battery +.01
 #literally the everything function
 func _physics_process(delta: float) -> void:
 
