@@ -24,8 +24,8 @@ const JUMP_VELOCITY = 4.5
 @onready var flashlight :=$Hand/Flashlight
 @onready var isFlashlighting= true
 @onready var flashBright = 3.5
-@onready var flashlight_battery = 900
-@onready var max_battery = 900
+@onready var flashlight_battery = 2000
+@onready var max_battery = 2000
 @onready var isFlashingdead = false
 #literally the camera function
 func _unhandled_input(event: InputEvent) -> void:
@@ -52,6 +52,7 @@ func _physics_process(delta: float) -> void:
 		flashlight_battery = flashlight_battery - 2
 	if flashlight_battery < 20 and isFlashlighting==true:
 		flashlight_battery = 0
+		flashlight.light_energy = lerp(flashBright, 0.0, .01)
 		isFlashingdead = true
 		isFlashlighting=false
 	if isFlashingdead == true or isFlashlighting==false:
