@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdvdf5v87mmrr"]
 
-[ext_resource type="PackedScene" uid="uid://c3s46qrj7m87p" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/master_options_menu.tscn" id="1_u1u8e"]
-[ext_resource type="PackedScene" uid="uid://b4r3gcnm31uo6" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_p458j"]
-[ext_resource type="PackedScene" uid="uid://dmgla7rq1g2cc" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_vs2ne"]
-[ext_resource type="PackedScene" uid="uid://cck3omvlkhpix" path="res://addons/maaacks_menus_template/examples/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_v3ewd"]
+[ext_resource type="PackedScene" uid="uid://c3s46qrj7m87p" path="res://addons/maaacks_options_menus/examples/scenes/menus/options_menu/master_options_menu.tscn" id="1_u1u8e"]
+[ext_resource type="PackedScene" uid="uid://b4r3gcnm31uo6" path="res://addons/maaacks_options_menus/examples/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_p458j"]
+[ext_resource type="PackedScene" uid="uid://dmgla7rq1g2cc" path="res://addons/maaacks_options_menus/examples/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_vs2ne"]
+[ext_resource type="PackedScene" uid="uid://cck3omvlkhpix" path="res://addons/maaacks_options_menus/examples/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_v3ewd"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_u1u8e")]
 
@@ -12,12 +12,42 @@ current_tab = 0
 
 [node name="Controls" parent="TabContainer" index="1" instance=ExtResource("2_p458j")]
 layout_mode = 2
+action_name_map = {
+"interact": "Interact",
+"move_down": "Down",
+"move_left": "Left",
+"move_right": "Right",
+"move_up": "Up"
+}
 show_all_actions = true
+show_built_in_actions = false
+catch_built_in_duplicate_inputs = false
+built_in_action_name_map = {
+"ui_accept": "Accept",
+"ui_cancel": "Cancel",
+"ui_copy": "Copy",
+"ui_cut": "Cut",
+"ui_down": "Down (UI)",
+"ui_end": "End",
+"ui_focus_next": "Focus Next",
+"ui_focus_prev": "Focus Prev",
+"ui_home": "Home",
+"ui_left": "Left (UI)",
+"ui_page_down": "Page Down",
+"ui_page_up": "Page Up",
+"ui_paste": "Paste",
+"ui_redo": "Redo",
+"ui_right": "Right (UI)",
+"ui_select": "Select",
+"ui_undo": "Undo",
+"ui_up": "Up (UI)"
+}
 metadata/_tab_index = 0
 
 [node name="Audio" parent="TabContainer" index="2" instance=ExtResource("3_vs2ne")]
 visible = false
 layout_mode = 2
+hide_busses = Array[String]([])
 metadata/_tab_index = 1
 
 [node name="Video" parent="TabContainer" index="3" instance=ExtResource("4_v3ewd")]
