@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b50218grqmdee"]
+[gd_scene load_steps=7 format=3 uid="uid://dbp80wgaogprr"]
 
 [ext_resource type="MeshLibrary" uid="uid://kx2vuje4x2w7" path="res://Resources/MotelTileSet/MotelTileset.tres" id="1_o47k0"]
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="2_ra24r"]
@@ -39,12 +39,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43687, 2.4319, 0.850266)
 
 [node name="OmniLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.75123, -0.149364, 0.642919, -0.656558, -0.269042, 0.704662, 0.0677212, -0.951476, -0.300178, 1.00783, 4.63436, -1.54761)
-light_energy = 3.75
-light_volumetric_fog_energy = 26.445
-light_specular = 0.0
+light_energy = 10.512
 shadow_enabled = true
+shadow_normal_bias = 0.0
 distance_fade_enabled = true
-spot_range = 17.511
-spot_attenuation = 0.75
-spot_angle = 44.44
-spot_angle_attenuation = 1.31951
+spot_range = 10.261
+spot_attenuation = 2.0
+spot_angle = 53.54
+spot_angle_attenuation = 13.4544
