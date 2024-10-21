@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgiay576fyrov"]
+[gd_scene load_steps=20 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mem4nbmikwfm" path="res://Transitions/door_transition.tscn" id="4_gcdxx"]
 [ext_resource type="AudioStream" uid="uid://c6bi1houv2e6x" path="res://Assets/all sfx/ambience/tick tock.mp3" id="4_qxjj1"]
 [ext_resource type="PackedScene" uid="uid://cmus8sya0goou" path="res://Player/Test World/harmblock.tscn" id="6_cypbn"]
+[ext_resource type="Script" path="res://Player/Test World/testcast.gd" id="7_uwp48"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
@@ -41,6 +42,8 @@ material = SubResource("ShaderMaterial_t2x35")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qoakb"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4o7d3"]
 
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("BackgroundTest")]
 script = ExtResource("1_tgoim")
@@ -110,3 +113,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80584, 0)
 
 [node name="Node3D2" parent="." instance=ExtResource("6_cypbn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.49263, 4.92452, -51.7774)
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21599, 4.34093, -33.3734)
+mesh = SubResource("BoxMesh_4o7d3")
+skeleton = NodePath("RayCast3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="MeshInstance3D6"]
+target_position = Vector3(1, -1, 1)
+debug_shape_custom_color = Color(0, 0.576471, 0, 1)
+script = ExtResource("7_uwp48")

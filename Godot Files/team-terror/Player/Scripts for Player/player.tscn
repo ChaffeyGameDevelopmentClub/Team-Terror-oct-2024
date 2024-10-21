@@ -54,4 +54,4 @@ spot_range = 8.00131
 spot_angle = 20.9475
 
 [node name="Flashlight_Battery" type="Timer" parent="Player/Hand/Flashlight"]
-wait_time = 300.0
+wait_time = 30.0

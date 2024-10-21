@@ -26,6 +26,7 @@ const JUMP_VELOCITY = 4.5
 @onready var flashBright = 3.5
 @onready var flashlight_timer := $Hand/Flashlight/Flashlight_Battery 
 @onready var isFlashingdead = false
+@onready var flicker = false
 
 func _ready() -> void:
 	flashlight_timer.start()
@@ -52,12 +53,17 @@ func _unhandled_input(event: InputEvent) -> void:
 #die
 func _die():
 	pass
+
 #literally the everything function
 func _physics_process(delta: float) -> void:
-	
-	print(flashlight_timer.time_left)
+	if $RayCast3d.is_colliding():
+		
+		pass
+		
 
-
+	if flashlight_timer.get_time_left()<20:
+		flashBright = randf_range(0,.7)
+		pass
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
