@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://x8lnqyhmjcde"]
+
+[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/weird Model/Werid.glb" id="1_pqkrb"]
+[ext_resource type="ArrayMesh" uid="uid://n135ho46oh" path="res://Assets/weird Model/testing.tres" id="2_skj1o"]
+
+[node name="Werid" instance=ExtResource("1_pqkrb")]
+
+[node name="Cube" parent="." index="0"]
+mesh = ExtResource("2_skj1o")
