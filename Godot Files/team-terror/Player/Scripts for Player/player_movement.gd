@@ -10,7 +10,6 @@ const JUMP_VELOCITY = 4.5
 @export var player_speed = 2.5
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
-@onready var health = 2
 @onready var stamina=100
 @onready var isSprint= false
 @onready var isTired= false
@@ -21,6 +20,7 @@ const JUMP_VELOCITY = 4.5
 #Flashlight stuff, first exporting AND THEN KILLING
 @onready var hand :=$Hand
 @onready var flashlight :=$Hand/Flashlight
+@onready var isFlashlighting= true
 func _unhandled_input(event: InputEvent) -> void:
 	clamp(stamina,0,200)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		#flashlight rotate moment
 		flashlight.rotate_y(-event.relative.x*sensitivity_camera)
-		flashlight.rotation.z=camera.rotation.z
+		flashlight.rotation.x=camera.rotation.x
 		pass
 	pass
 	
@@ -68,12 +68,14 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
+#input testing but we need to get rid of test inputs in the final build
 func _input(event: InputEvent) -> void:
+	#increase fov test and decrease
 	if Input.is_action_pressed("test_inp_1"):
 		camera_fov +=10
 	if Input.is_action_pressed("test_inp_2"):
 		camera_fov -=10
+	#exits the game so you don't click on x or whatever
 	if Input.is_action_just_pressed("exit_test"):
 		get_tree().quit()
 	#Zoom
@@ -88,13 +90,24 @@ func _input(event: InputEvent) -> void:
 	else: 
 		player_speed = 2.5
 		isSprint=false
-		
+	#checks if the light is on and how much energy it should have
+	if Input.is_action_just_pressed("left_click"):
+		if isFlashlighting == true:
+			isFlashlighting = false
+		else:
+			isFlashlighting = true
+	if isFlashlighting == true:
+		flashlight.light_energy = 3.5
+	else:
+		flashlight.light_energy = 0
+	#walking sound DELETE ASAP
 	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
 		isSound = true
 		Walk.play()
 		await(Walk.finished)
 		isSound=false
 		pass
+	#Warp DELETE LATER
 	if Input.is_action_just_pressed("test3"):
 		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass
