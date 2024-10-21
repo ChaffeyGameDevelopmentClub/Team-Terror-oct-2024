@@ -24,14 +24,19 @@ const JUMP_VELOCITY = 4.5
 @onready var flashlight :=$Hand/Flashlight
 @onready var isFlashlighting= true
 @onready var flashBright = 3.5
-@onready var flashlight_battery = 2000
-@onready var max_battery = 2000
+@onready var flashlight_timer := $Hand/Flashlight/Flashlight_Battery 
 @onready var isFlashingdead = false
+
+func _ready() -> void:
+	flashlight_timer.start()
+	pass
+
 #literally the camera function
+
 func _unhandled_input(event: InputEvent) -> void:
 	#clamps values, for some reason it works better here so lets call it magic
 	stamina = clamp(stamina,0,max_stamina)
-	flashlight_battery = clamp(flashlight_battery,0 ,max_battery)
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
@@ -49,20 +54,10 @@ func _die():
 	pass
 #literally the everything function
 func _physics_process(delta: float) -> void:
-	#flashlight draining
-	if isFlashlighting == true and isFlashingdead == false:
-		flashlight_battery = flashlight_battery - 2
-	if flashlight_battery < 20 and isFlashlighting==true:
-		flashlight_battery = 0
-		flashlight.light_energy = lerp(flashBright, 0.0, .01)
-		isFlashingdead = true
-		isFlashlighting=false
-	if isFlashingdead == true or isFlashlighting==false:
-		flashlight_battery = flashlight_battery + 1
-	elif isFlashingdead == true and isFlashlighting==false:
-		flashlight_battery = flashlight_battery + 1
-	if flashlight_battery == 200:
-		isFlashingdead=false
+	
+	print(flashlight_timer.time_left)
+
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -121,8 +116,10 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click"):
 		if isFlashlighting == true and isFlashingdead==false:
 			isFlashlighting = false
+			flashlight_timer.set_paused(true)
 		elif isFlashlighting == false and isFlashingdead ==false:
 			isFlashlighting = true
+			flashlight_timer.set_paused(false)
 	if isFlashlighting == true:
 		flashlight.light_energy = flashBright
 	else:
