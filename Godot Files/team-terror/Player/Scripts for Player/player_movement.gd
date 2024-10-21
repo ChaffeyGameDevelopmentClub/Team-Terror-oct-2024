@@ -10,7 +10,9 @@ const JUMP_VELOCITY = 4.5
 @export var player_speed = 2.5
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
+#Stamina check
 @onready var stamina=100
+@onready var max_stamina=200
 @onready var isSprint= false
 @onready var isTired= false
 @onready var isSound= false
@@ -21,8 +23,11 @@ const JUMP_VELOCITY = 4.5
 @onready var hand :=$Hand
 @onready var flashlight :=$Hand/Flashlight
 @onready var isFlashlighting= true
+@onready var flashlight_battery = 3.00
+@onready var isFlashingdead = false
+#literally the camera function
 func _unhandled_input(event: InputEvent) -> void:
-	clamp(stamina,0,200)
+	clamp(stamina,0,max_stamina)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
@@ -34,8 +39,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		flashlight.rotation.x=camera.rotation.x
 		pass
 	pass
-	
+
+func _process(delta: float) -> void:
+	clamp(stamina,0,max_stamina)
+	clamp(flashlight_battery, 0 , 3.5)
+	#flashlight draining
+	if isFlashlighting == true and isFlashingdead == false:
+		flashlight_battery = flashlight_battery - .001
+	if flashlight_battery < .5:
+		flashlight_battery = 0
+		isFlashingdead = true
+		isFlashlighting=false
+	if isFlashingdead == true:
+		flashlight_battery = flashlight_battery + .01
+		
+#literally the everything function
 func _physics_process(delta: float) -> void:
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -97,7 +117,7 @@ func _input(event: InputEvent) -> void:
 		else:
 			isFlashlighting = true
 	if isFlashlighting == true:
-		flashlight.light_energy = 3.5
+		flashlight.light_energy = flashlight_battery
 	else:
 		flashlight.light_energy = 0
 	#walking sound DELETE ASAP
