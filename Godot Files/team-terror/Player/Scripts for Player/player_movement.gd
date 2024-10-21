@@ -52,6 +52,8 @@ func _process(delta: float) -> void:
 		isFlashlighting=false
 	if isFlashingdead == true:
 		flashlight_battery = flashlight_battery + .01
+	if flashlight_battery == 2.5:
+		isFlashingdead=false
 		
 #literally the everything function
 func _physics_process(delta: float) -> void:
@@ -112,9 +114,9 @@ func _input(event: InputEvent) -> void:
 		isSprint=false
 	#checks if the light is on and how much energy it should have
 	if Input.is_action_just_pressed("left_click"):
-		if isFlashlighting == true:
+		if isFlashlighting == true and isFlashingdead==false:
 			isFlashlighting = false
-		else:
+		elif isFlashlighting == false and isFlashingdead ==false:
 			isFlashlighting = true
 	if isFlashlighting == true:
 		flashlight.light_energy = flashlight_battery
