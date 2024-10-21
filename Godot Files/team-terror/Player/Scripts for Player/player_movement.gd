@@ -56,10 +56,7 @@ func _die():
 
 #literally the everything function
 func _physics_process(delta: float) -> void:
-	if $RayCast3d.is_colliding():
-		
-		pass
-		
+
 
 	if flashlight_timer.get_time_left()<20:
 		flashBright = randf_range(0,.7)
