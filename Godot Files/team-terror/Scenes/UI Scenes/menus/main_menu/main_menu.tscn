@@ -7,14 +7,9 @@
 
 [node name="MainMenu" instance=ExtResource("1_ot7lh")]
 script = ExtResource("2_bd1q8")
+game_scene_path = "res://Scenes/Tilemap testing.tscn"
 options_packed_scene = ExtResource("3_rs3f2")
 credits_packed_scene = ExtResource("4_gp7pr")
-
-[node name="BackgroundMusicPlayer" parent="." index="1"]
-bus = &"Master"
-
-[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
-text = "v0.0.1"
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
 text = "The Backwaters"
