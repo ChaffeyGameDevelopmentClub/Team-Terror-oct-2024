@@ -1,42 +1,18 @@
 {
   "main": {
-    "id": "02563bccc98ade82",
+    "id": "5328e8b32d568ec4",
     "type": "split",
     "children": [
       {
-        "id": "9b0b1ea072b5c011",
+        "id": "282456d32de142d2",
         "type": "tabs",
-        "dimension": 59.192037470726,
         "children": [
           {
-            "id": "4ede9c6a0d2f01e4",
+            "id": "817f575596b7dbe3",
             "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Ref/Visual Style.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Visual Style"
-            }
-          }
-        ]
-      },
-      {
-        "id": "840bdb60effc61c2",
-        "type": "tabs",
-        "dimension": 40.80796252927401,
-        "children": [
-          {
-            "id": "9cb4e262c4437978",
-            "type": "leaf",
-            "pinned": true,
             "state": {
               "type": "graph",
               "state": {},
-              "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
@@ -47,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d4fbed08724d61da",
+    "id": "f72e4f03200f17cb",
     "type": "split",
     "children": [
       {
-        "id": "e88b59716b28c50a",
+        "id": "5deba8ebf41fabf9",
         "type": "tabs",
         "children": [
           {
-            "id": "b09b8fa7616e6ad9",
+            "id": "38b1acc58281693f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -67,7 +43,7 @@
             }
           },
           {
-            "id": "4b7e5c02ddd23eb3",
+            "id": "0b2b101acbdad178",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -84,7 +60,7 @@
             }
           },
           {
-            "id": "428c45fbf16d09bb",
+            "id": "e7ef6431ac0b0973",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -100,20 +76,20 @@
     "width": 300
   },
   "right": {
-    "id": "6fe25d19f2e942a7",
+    "id": "97b346138df5e818",
     "type": "split",
     "children": [
       {
-        "id": "93b6338f4666d5b5",
+        "id": "17e67185287afe90",
         "type": "tabs",
         "children": [
           {
-            "id": "f7d34579be0cccfe",
+            "id": "244310a47f47741b",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Ref/Visual Style.md",
+                "file": "The Backwaters/Game Docs/Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,25 +99,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Visual Style"
+              "title": "Backlinks for Map"
             }
           },
           {
-            "id": "dbe06c0b25ba079c",
+            "id": "e211bc8d691a165e",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Ref/Visual Style.md",
+                "file": "The Backwaters/Game Docs/Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Visual Style"
+              "title": "Outgoing links from Map"
             }
           },
           {
-            "id": "ba3bc215471417d8",
+            "id": "b21f190aed969776",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -154,23 +130,23 @@
             }
           },
           {
-            "id": "95f6f5dc541a91e8",
+            "id": "d20158e73047840e",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ref/Visual Style.md"
+                "file": "The Backwaters/Game Docs/Map.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Visual Style"
+              "title": "Outline of Map"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 507.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,46 +155,27 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "smart-second-brain:Open S2B Chat": false
+      "command-palette:Open command palette": false
     }
   },
-  "active": "4ede9c6a0d2f01e4",
+  "active": "817f575596b7dbe3",
   "lastOpenFiles": [
-    "Game Docs/Game Doc.md",
-    "Library.md",
-    "Story/Library.md",
-    "Ref/Wolf Creek Map Ver 1.png",
-    "Game Docs/Map.md",
-    "Cult ranks.canvas",
-    "Untitled.canvas",
-    "Story/Story.md",
-    "Characters.md",
-    "Game Docs/Puzzle-Solving.md",
-    "Chats/New Chat.md",
-    "The Disguised Object.md",
-    "Chats",
-    "Game Docs/Combat.md",
-    "Game Docs/Soundtrack.md",
-    "Game Docs/Gameplay Mechanics.md",
-    "Story/Grist Mill.md",
-    "Story/Moe's Hotel.md",
-    "Story",
-    "Ref/Pasted image 20241017194853.png",
-    "Ref",
-    "Ref/Visual Style.md",
-    "Untitled 1.canvas",
-    "Ref/Pasted image 20241017194921.png",
-    "Ref/Pasted image 20241017194918.png",
-    "Ref/Pasted image 20241017194915.png",
-    "Ref/Pasted image 20241017194910.png",
-    "Ref/Pasted image 20241017194906.png",
-    "Ref/Pasted image 20241017194903.png",
-    "Ref/Pasted image 20241017194900.png",
-    "Ref/Pasted image 20241017194857.png",
-    "Exploration.md",
-    "Game Docs",
-    "Untitled.md",
-    "Welcome.md"
+    "Wolf Creek Map Ver 1.png",
+    "The Backwaters/Story/Library.md",
+    "The Backwaters/Ref/Wolf Creek Map Ver 1.png",
+    "The Backwaters/Game Docs/Map.md",
+    "The Backwaters/Cult ranks.canvas",
+    "The Backwaters/Library.md",
+    "The Backwaters/Chats/New Chat.md",
+    "The Backwaters/Chats",
+    "The Backwaters/Wolf Creek Map Ver 1.png",
+    "The Backwaters/Game Docs/Game Doc.md",
+    "The Backwaters/Story/Moe's Hotel.md",
+    "The Backwaters/Story/Story.md",
+    "The Backwaters/Characters.md",
+    "The Backwaters/Game Docs/Combat.md",
+    "The Backwaters/Game Docs/Puzzle-Solving.md",
+    "The Backwaters/Game Docs/Gameplay Mechanics.md",
+    "The Backwaters/Story/Grist Mill.md"
   ]
 }
