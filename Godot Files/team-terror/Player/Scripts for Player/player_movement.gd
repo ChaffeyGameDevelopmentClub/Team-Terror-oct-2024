@@ -23,12 +23,15 @@ const JUMP_VELOCITY = 4.5
 @onready var hand :=$Hand
 @onready var flashlight :=$Hand/Flashlight
 @onready var isFlashlighting= true
-@onready var flashlight_battery = 600
-@onready var max_battery = 700
+@onready var flashBright = 3.5
+@onready var flashlight_battery = 900
+@onready var max_battery = 900
 @onready var isFlashingdead = false
 #literally the camera function
 func _unhandled_input(event: InputEvent) -> void:
-	clamp(stamina,0,max_stamina)
+	#clamps values, for some reason it works better here so lets call it magic
+	stamina = clamp(stamina,0,max_stamina)
+	flashlight_battery = clamp(flashlight_battery,0 ,max_battery)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
@@ -41,24 +44,24 @@ func _unhandled_input(event: InputEvent) -> void:
 		pass
 	pass
 
-func _process(delta: float) -> void:
+
+#literally the everything function
+func _physics_process(delta: float) -> void:
 	print(flashlight_battery)
-	clamp(stamina,0,max_stamina)
-	clamp(flashlight_battery,0 ,max_battery)
+
 	#flashlight draining
 	if isFlashlighting == true and isFlashingdead == false:
 		flashlight_battery = flashlight_battery - 2
-	if flashlight_battery < 20:
+	if flashlight_battery < 20 and isFlashlighting==true:
 		flashlight_battery = 0
 		isFlashingdead = true
 		isFlashlighting=false
 	if isFlashingdead == true or isFlashlighting==false:
 		flashlight_battery = flashlight_battery + 1
+	elif isFlashingdead == true and isFlashlighting==false:
+		flashlight_battery = flashlight_battery + 1
 	if flashlight_battery == 200:
 		isFlashingdead=false
-#literally the everything function
-func _physics_process(delta: float) -> void:
-
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -120,7 +123,7 @@ func _input(event: InputEvent) -> void:
 		elif isFlashlighting == false and isFlashingdead ==false:
 			isFlashlighting = true
 	if isFlashlighting == true:
-		flashlight.light_energy = flashlight_battery
+		flashlight.light_energy = flashBright
 	else:
 		flashlight.light_energy = 0
 	#walking sound DELETE ASAP
