@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cit2fi5wjbn15"
-path="res://.godot/imported/MotelTileset.glb-f7064b60faaaf8ab06f644618cb12fdb.scn"
+uid="uid://dajtmb67o76xs"
+path="res://.godot/imported/Lamp.glb-a98134417d5dec704cdeeb1254bc0593.scn"
 
 [deps]
 
-source_file="res://Assets/MotelTileset/MotelTileset.glb"
-dest_files=["res://.godot/imported/MotelTileset.glb-f7064b60faaaf8ab06f644618cb12fdb.scn"]
+source_file="res://Assets/MotelTileset/Lamp.glb"
+dest_files=["res://.godot/imported/Lamp.glb-a98134417d5dec704cdeeb1254bc0593.scn"]
 
 [params]
 
