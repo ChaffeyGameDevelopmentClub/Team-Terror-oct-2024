@@ -14,9 +14,19 @@ custom_minimum_size = Vector2(0, 648)
 custom_minimum_size = Vector2(1152, 0)
 text = "[center][font_size=48]Collaborators[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
+[font_size=32]Programming[/font_size]
+Luna  
+Damian
+Miguel
+
+[font_size=32]Art[/font_size]
+Luna
+Damian
+Vince
+Adrian
+Iris
+Jared
+
 [url=]Person w/ Link[/url]  
 
 
