@@ -87,6 +87,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		#Plays the head bobbing animation while a direction is being played, it should be easy to
+		#edit within the animation tab so LOL
 		if isSprint ==false:
 			if isAnimating == false:
 				isAnimating = true
