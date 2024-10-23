@@ -25,7 +25,11 @@ SceneTransition="*res://Transitions/canvas_layer.tscn"
 [file_customization]
 
 folder_colors={
-"res://Player/": "green",
+"res://Assets/": "green",
+"res://Resources/": "orange",
+"res://Scenes/": "purple",
+"res://Scenes/Player/": "blue",
+"res://Scripts/": "red",
 "res://Shaders/": "yellow"
 }
 

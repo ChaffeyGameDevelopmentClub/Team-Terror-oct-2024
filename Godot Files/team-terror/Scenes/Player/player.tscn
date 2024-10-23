@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://do73ciyy4senj"]
 
 [ext_resource type="AudioStream" uid="uid://tkgqyjo6rrr2" path="res://Assets/all sfx/Player_SFX/walk.mp3" id="1_lgmok"]
-[ext_resource type="Script" path="res://Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
+[ext_resource type="Script" path="res://Scenes/Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
 [ext_resource type="AudioStream" uid="uid://cm8fbo34x2p86" path="res://Assets/all sfx/Player_SFX/run.mp3" id="2_iwfo3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
