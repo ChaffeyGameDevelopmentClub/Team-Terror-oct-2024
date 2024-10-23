@@ -58,6 +58,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 #die
 func _die():
+	#Go to game over screen
 	pass
 
 #literally the everything function
@@ -95,9 +96,6 @@ func _physics_process(delta: float) -> void:
 		isTired=true
 	elif stamina>180:
 		isTired=false
-	if interactable.is_colliding():
-		print(interactable.get_collider())
-		print(interactable.get_groups())
 	move_and_slide()
 
 func get_key():
