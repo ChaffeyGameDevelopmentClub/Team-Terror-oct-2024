@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bljp3vjl872yv"
+path="res://.godot/imported/MotelTileset.obj-275c29822859149900ddc6c630162555.mesh"
+
+[deps]
+
+files=["res://.godot/imported/MotelTileset.obj-275c29822859149900ddc6c630162555.mesh"]
+
+source_file="res://Resources/MotelTileSet/MotelTileset.obj"
+dest_files=["res://.godot/imported/MotelTileset.obj-275c29822859149900ddc6c630162555.mesh", "res://.godot/imported/MotelTileset.obj-275c29822859149900ddc6c630162555.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
