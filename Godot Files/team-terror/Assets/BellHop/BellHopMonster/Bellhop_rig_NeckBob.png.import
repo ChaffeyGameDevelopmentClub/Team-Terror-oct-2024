@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bakvxusj0j2lv"
+uid="uid://b057m0td4po18"
 path.s3tc="res://.godot/imported/Bellhop_rig_NeckBob.png-0285cae473f7fb449e59527c39d5e911.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "b0013cc1862326e357db845246caf437"
 }
 
 [deps]
