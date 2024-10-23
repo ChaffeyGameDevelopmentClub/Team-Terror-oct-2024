@@ -1,5 +1,6 @@
 extends Control
-
+#We have two control nodes and do it like this so when you back out of options you can go to quit or 
+#resume the game, pretty neat
 @export var menu: Control
 @export var options: Control
 
