@@ -1,21 +1,23 @@
 extends Node3D
 
 var opened = false
-@export var left_hinge = Area3D
-@export var right_hinge = Area3D
+#Useless export because THEY SUCK aka they do not matter
+@export var left_hinge : StaticBody3D
+@export var right_hinge : StaticBody3D
+@export var opens : AnimationPlayer 
 func _ready() -> void:
-	$MeshInstance3D2/LeftSideHinge.connect("leftopens", open_left)
-	$MeshInstance3D2/RightSideHinge.connect("rightopens", open_right)
+	left_hinge.connect("leftopens", open_left)
+	right_hinge.connect("rightopens", open_right)
 	pass
 func open_left():
 	if opened == false:
-		rotation.y = lerp(0.0,85.0,.1)
+		opens.play("left_hinge")
 		opened = true
 		pass
 	pass
 func open_right():
 	if opened ==false:
-		rotation.y = lerp(0.0,-85.0,.1)
+		opens.play("right_hinge")
 		opened = true
 		pass
 	pass
