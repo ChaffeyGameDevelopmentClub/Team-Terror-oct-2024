@@ -150,3 +150,9 @@ func _input(event: InputEvent) -> void:
 			if collider.is_in_group("door_transition"):
 				print("HA!")
 				collider.interact()
+			if collider.is_in_group("left_side_hinge"):
+				collider.left_open()
+				pass
+			if collider.is_in_group("right_side_hinge"):
+				collider.right_open()
+				pass

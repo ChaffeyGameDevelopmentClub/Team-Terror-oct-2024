@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://blmyed4is3vev"]
+[gd_scene load_steps=8 format=3 uid="uid://blmyed4is3vev"]
 
 [ext_resource type="Script" path="res://Scenes/Player/Test World/left_side_hinge_door.gd" id="1_648im"]
+[ext_resource type="Script" path="res://Scenes/Player/Test World/door_rotation.gd" id="1_l6rko"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/right_side_hinge.gd" id="2_dhppi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pogrc"]
@@ -14,8 +15,11 @@ height = 0.1
 [sub_resource type="BoxShape3D" id="BoxShape3D_5lyvc"]
 size = Vector3(1, 1, 0.94191)
 
-[node name="TestDoorForopening" type="Node3D"]
+[node name="TestDoorForopening" type="Node3D" node_paths=PackedStringArray("left_hinge", "right_hinge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00171, 0)
+script = ExtResource("1_l6rko")
+left_hinge = NodePath("")
+right_hinge = NodePath("")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 1, -0.1986, 0, -0.211485)
@@ -31,14 +35,14 @@ transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 1, 0.0781006, 0, -0.842461)
 mesh = SubResource("SphereMesh_pogrc")
 skeleton = NodePath("../MeshInstance3D")
 
-[node name="LeftSideHinge" type="Area3D" parent="MeshInstance3D2"]
+[node name="LeftSideHinge" type="StaticBody3D" parent="MeshInstance3D2" groups=["left_side_hinge"]]
 script = ExtResource("1_648im")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/LeftSideHinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.34454)
 shape = SubResource("BoxShape3D_qni0g")
 
-[node name="RightSideHinge" type="Area3D" parent="MeshInstance3D2"]
+[node name="RightSideHinge" type="StaticBody3D" parent="MeshInstance3D2" groups=["right_side_hinge"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5881, 0, 0)
 script = ExtResource("2_dhppi")
 
