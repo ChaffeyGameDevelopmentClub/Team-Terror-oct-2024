@@ -236,3 +236,7 @@ func _on_confirmation_dialog_confirmed():
 	AppSettings.reset_to_default_inputs()
 	_build_assigned_input_events()
 	_build_ui_tree()
+
+
+
+	pass # Replace with function body.

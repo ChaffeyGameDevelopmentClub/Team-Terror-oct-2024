@@ -180,16 +180,14 @@ func _input(event: InputEvent) -> void:
 		Pause()
 		pass
 func Pause():
-	if get_tree().paused == true:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		PauseMenu.hide()
-		get_tree().paused = false
-		Engine.time_scale = 1
-		pass
-	else:
+	if get_tree().paused == false:
 		PauseMenu.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 		Engine.time_scale = 0
-		pass
-	pass
+
+	#else:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		#PauseMenu.hide()
+		#get_tree().paused = false
+		#Engine.time_scale = 1

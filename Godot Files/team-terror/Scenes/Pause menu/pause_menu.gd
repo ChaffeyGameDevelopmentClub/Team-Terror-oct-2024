@@ -1,5 +1,15 @@
 extends Control
 
+@export var menu: Control
+@export var options: Control
+
+func _ready() -> void:
+	menu.show()
+	options.hide()
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		menu.show()
+		options.hide()
 
 func _on_Resume_button_pressed():
 	get_tree().paused=false
