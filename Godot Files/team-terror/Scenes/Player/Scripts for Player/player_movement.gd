@@ -46,19 +46,19 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	#clamps values, for some reason it works better here so lets call it magic
 	stamina = clamp(stamina,0,max_stamina)
-
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	if event is InputEventMouseMotion:
-		neck.rotate_y(-event.relative.x*sensitivity_camera)
-		camera.rotate_x(-event.relative.y*sensitivity_camera)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
+	if get_tree().paused==false:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		if event is InputEventMouseMotion:
+			neck.rotate_y(-event.relative.x*sensitivity_camera)
+			camera.rotate_x(-event.relative.y*sensitivity_camera)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
 		
 		#flashlight rotate moment
-		flashlight.rotate_y(-event.relative.x*sensitivity_camera)
-		flashlight.rotation.x=camera.rotation.x
+			flashlight.rotate_y(-event.relative.x*sensitivity_camera)
+			flashlight.rotation.x=camera.rotation.x
+	if get_tree().paused==true:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pass
-	pass
-
 #die
 func _die():
 	#Go to game over screen
@@ -180,12 +180,16 @@ func _input(event: InputEvent) -> void:
 		Pause()
 		pass
 func Pause():
-	if paused:
+	if get_tree().paused == true:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		PauseMenu.hide()
+		get_tree().paused = false
 		Engine.time_scale = 1
 		pass
 	else:
 		PauseMenu.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
 		Engine.time_scale = 0
 		pass
 	pass
