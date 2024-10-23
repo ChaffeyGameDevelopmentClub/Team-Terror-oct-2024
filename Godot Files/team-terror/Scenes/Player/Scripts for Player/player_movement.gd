@@ -150,19 +150,26 @@ func _input(event: InputEvent) -> void:
 		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass
 	#fire it out smartass
+	#This is a mess... It's all the item interactables and we're looking for the static body 3d's that we can take.
+	#Why did I do it like this? Because collider != null wasn't working. yeah. What the fuck man
 	if Input.is_action_just_pressed("interaction"):
+		#collider object gets the object so we can pull their function so like collider.die()
 		var collider= interactable.get_collider()
 		if collider is StaticBody3D:
+			#Door transition stuff, for in between areas.
 			if collider.is_in_group("door_transition"):
 				collider.interact()
+			#Door opening when in the main level using a mess of area3d
 			if collider.is_in_group("left_side_hinge"):
 				collider.left_open()
 			if collider.is_in_group("right_side_hinge"):
 				collider.right_open()
+			#Getting your keys, don't forget them next time, plays text also to be more clear
 			if collider.is_in_group("key1"):
 				get_key();
 				collider.self_destruct()
 				TextOverlay.Get_Key_Area_1()
+			#Can't open a locked door unless gotKey = true
 			if collider.is_in_group("locked_door"):
 				if gotKey == true:
 					collider.left_open()
