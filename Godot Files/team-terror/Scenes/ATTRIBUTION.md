@@ -1,9 +1,19 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
+### Programming
+Luna  
+Damian
+Miguel
+
+### Art
+Luna
+Damian
+Vince
+Adrian
+Iris
+Jared
+
 [Person w/ Link]()  
 
 
