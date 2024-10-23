@@ -7,6 +7,7 @@ var player = null
 @export var playerNode : CharacterBody3D
 @export var nav_agent : NavigationAgent3D
 @export var seenTimer : Timer
+@export var stalkingTimer : Timer
 @export var sight : RayCast3D
 var seen : bool
 
@@ -56,8 +57,15 @@ func _process(delta):
 			pass
 		2: #Stalking
 			#Get Players Pos
+			nav_agent.set_target_position(playerNode.global_transform.origin)
 			#Move To
-			pass
+			var next_nav_point = nav_agent.get_next_path_position()
+			var Newvelocity = (next_nav_point - global_transform.origin).normalized() * SPEED
+			look_at(playerNode.global_transform.origin)
+			set_velocity(Newvelocity)
+			#Start Timer
+			stalkingTimer.start()
+			
 		3: #Wandering
 			#Find random Pos
 			#set Target
@@ -75,8 +83,11 @@ func lookAt(target):
 	
 func _on_seen_timer_timeout() -> void:
 	#switch to wander
-	pass
+	entity_state = 3
 
+func _on_stalking_timer_timeout() -> void:
+	#Swtich to wander
+	entity_state = 3
 
 
 '

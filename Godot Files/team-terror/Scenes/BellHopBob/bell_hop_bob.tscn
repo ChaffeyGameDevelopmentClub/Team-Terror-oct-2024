@@ -4016,10 +4016,11 @@ radius = 2.84429
 height = 3.37968
 radius = 1.66494
 
-[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "sight")]
+[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "stalkingTimer", "sight")]
 script = ExtResource("1_4qfro")
 nav_agent = NodePath("NavigationAgent3D")
 seenTimer = NodePath("SeenTimer")
+stalkingTimer = NodePath("StalkingTimer")
 sight = NodePath("Node3D/Sight")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -4333,4 +4334,8 @@ shape = SubResource("CylinderShape3D_6lnwf")
 [node name="SeenTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="StalkingTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="SeenTimer" to="." method="_on_seen_timer_timeout"]
+[connection signal="timeout" from="StalkingTimer" to="." method="_on_stalking_timer_timeout"]
