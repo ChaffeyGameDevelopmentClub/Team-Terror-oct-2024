@@ -28,6 +28,9 @@ const JUMP_VELOCITY = 4.5
 @onready var isFlashingdead = false
 @onready var flicker = false
 
+#Interactable distance from the player for doors and getting keys or whatever
+@export var interactable : RayCast3D
+
 func _ready() -> void:
 	flashlight_timer.start()
 	pass
@@ -89,7 +92,9 @@ func _physics_process(delta: float) -> void:
 		isTired=true
 	elif stamina>180:
 		isTired=false
-	
+	if interactable.is_colliding():
+		print(interactable.get_collider())
+		print(interactable.get_groups())
 	move_and_slide()
 
 #input testing but we need to get rid of test inputs in the final build
@@ -137,3 +142,11 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("test3"):
 		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass
+	#fire it out smartass
+	if Input.is_action_just_pressed("interaction"):
+		var collider= interactable.get_collider()
+		print("You tried!")
+		if collider is StaticBody3D:
+			if collider.is_in_group("door_transition"):
+				print("HA!")
+				collider.interact()
