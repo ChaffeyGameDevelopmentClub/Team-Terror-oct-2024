@@ -20,7 +20,7 @@ const KEY_DELETION_TEXT : String = "Are you sure you want to remove {key} from {
 @export var remove_button_texture : Texture2D
 @export_group("Built-in Actions")
 ## Shows Godot's built-in actions (action names starting with "ui_") in the tree.
-@export var show_built_in_actions : bool = false
+@export var show_built_in_actions : bool = true
 ## Prevents assigning inputs that are already assigned to Godot's built-in actions (action names starting with "ui_"). Not recommended.
 @export var catch_built_in_duplicate_inputs : bool = false
 ## Maps the names of built-in input actions to readable names for users.

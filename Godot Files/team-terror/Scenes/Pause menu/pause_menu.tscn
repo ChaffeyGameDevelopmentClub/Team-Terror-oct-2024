@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://pir7fuqoy1o5"]
+[gd_scene load_steps=5 format=3 uid="uid://pir7fuqoy1o5"]
 
 [ext_resource type="Script" path="res://Scenes/Pause menu/resume.gd" id="1_c7pws"]
 [ext_resource type="Script" path="res://Scenes/Pause menu/quit.gd" id="1_oldyb"]
+[ext_resource type="Script" path="res://Scenes/Pause menu/options.gd" id="2_whg6m"]
+[ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_365e7"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -11,6 +13,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MasterOptionsMenu" parent="." instance=ExtResource("3_365e7")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 378.0
+offset_top = 81.0
+offset_right = 448.0
+offset_bottom = 81.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -38,10 +50,13 @@ text = "Resume"
 script = ExtResource("1_c7pws")
 PauseMenu = NodePath("../../..")
 
-[node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="PanelContainer/VBoxContainer" node_paths=PackedStringArray("MasterOptions", "PauseMenu")]
 layout_mode = 2
 size_flags_vertical = 4
 text = "Options"
+script = ExtResource("2_whg6m")
+MasterOptions = NodePath("../../../MasterOptionsMenu")
+PauseMenu = NodePath("..")
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2

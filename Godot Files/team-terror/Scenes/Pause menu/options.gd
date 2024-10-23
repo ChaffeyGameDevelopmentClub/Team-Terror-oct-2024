@@ -1,7 +1,14 @@
 extends Button
 
+@export var MasterOptions : Control
+@export var PauseMenu : Control
+func _ready() -> void:
+	MasterOptions.hide()
+	pass
 
 
 func _on_pressed() -> void:
-	#get options
-	pass # Replace with function body.
+	PauseMenu.hide()
+	MasterOptions.show()
+
+	
