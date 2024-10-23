@@ -174,5 +174,8 @@ func _input(event: InputEvent) -> void:
 				else:
 					TextOverlay.Door_Locked()
 	if Input.is_action_just_pressed("pause"):
-		
+		Pause()
 		pass
+func Pause():
+	
+	pass

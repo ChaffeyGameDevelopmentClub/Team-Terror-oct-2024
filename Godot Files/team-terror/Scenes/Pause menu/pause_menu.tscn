@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://pir7fuqoy1o5"]
+
+[ext_resource type="Script" path="res://Scenes/Pause menu/quit.gd" id="1_oldyb"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.0
+offset_top = 73.0
+offset_right = 7.0
+offset_bottom = 104.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+text = "Resume"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -19.5
+offset_right = 9.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+text = "Options"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -128.0
+offset_right = 20.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+text = "Quit"
+script = ExtResource("1_oldyb")
+
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
