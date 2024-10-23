@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doqvdchsatkeq"
-path.s3tc="res://.godot/imported/Werid_Testing Sprite.png-c828eac5540670928b74d4121d9e27c0.s3tc.ctex"
+uid="uid://bakvxusj0j2lv"
+path.s3tc="res://.godot/imported/Bellhop_rig_NeckBob.png-0285cae473f7fb449e59527c39d5e911.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6b0dc667fd054382a7f035e1b62ea903"
+"md5": "c33291d5790de4956088d0699f3453c2"
 }
 
 [deps]
 
-source_file="res://Assets/weird Model/Werid_Testing Sprite.png"
-dest_files=["res://.godot/imported/Werid_Testing Sprite.png-c828eac5540670928b74d4121d9e27c0.s3tc.ctex"]
+source_file="res://Assets/BellHop/BellHopMonster/Bellhop_rig_NeckBob.png"
+dest_files=["res://.godot/imported/Bellhop_rig_NeckBob.png-0285cae473f7fb449e59527c39d5e911.s3tc.ctex"]
 
 [params]
 
