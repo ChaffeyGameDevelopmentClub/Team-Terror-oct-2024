@@ -31,6 +31,9 @@ const JUMP_VELOCITY = 4.5
 #Interactable distance from the player for doors and getting keys or whatever
 @export var interactable : RayCast3D
 
+#Do you have a key on spawn?
+var gotKey = false
+
 func _ready() -> void:
 	flashlight_timer.start()
 	pass
@@ -97,6 +100,10 @@ func _physics_process(delta: float) -> void:
 		print(interactable.get_groups())
 	move_and_slide()
 
+func get_key():
+	gotKey = true
+	pass
+
 #input testing but we need to get rid of test inputs in the final build
 func _input(event: InputEvent) -> void:
 	#increase fov test and decrease
@@ -156,3 +163,5 @@ func _input(event: InputEvent) -> void:
 			if collider.is_in_group("right_side_hinge"):
 				collider.right_open()
 				pass
+			if collider.is_in_group("key1"):
+				get_key();
