@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://c42s8irdr2wdd"]
+
+[ext_resource type="PackedScene" uid="uid://4wk8vuvn1d5d" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig.glb" id="1_1ppoy"]
+
+[node name="Bellhop_rig" instance=ExtResource("1_1ppoy")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0.59794)
+bones/1/rotation = Quaternion(0.171472, 2.34887e-07, 4.0882e-08, 0.985189)
+bones/4/rotation = Quaternion(0.0413197, 0, 1.97028e-08, 0.999146)
+bones/6/rotation = Quaternion(-0.413153, 0.0121279, 0.420687, 0.807576)
+bones/7/rotation = Quaternion(-0.140498, 0.897559, -0.0761048, 0.410921)
+bones/9/rotation = Quaternion(2.10734e-08, -3.16101e-07, -0.707107, 0.707107)
+bones/10/rotation = Quaternion(-0.44171, 1.45696e-07, -0.384076, 0.810789)
+bones/11/rotation = Quaternion(0.140498, 0.897559, -0.0761048, -0.410921)
+bones/15/rotation = Quaternion(-0.556943, 0.0425231, 0.167322, 0.81241)
+bones/16/scale = Vector3(1, 1, 1)
+bones/19/rotation = Quaternion(-0.556943, -0.0425232, -0.167322, 0.81241)
+bones/20/rotation = Quaternion(-0.000134938, -0.0636383, 0.997973, -0.000404209)
+bones/21/rotation = Quaternion(0.144947, 0.00257964, -0.0180168, 0.989272)
+bones/22/rotation = Quaternion(0.000134937, -0.0636383, 0.997973, 0.000404211)
+bones/23/rotation = Quaternion(0.144947, -0.00257966, 0.0180168, 0.989272)
+bones/24/position = Vector3(1.04982, -4.93079, 0.140866)
+bones/25/position = Vector3(-1.04982, -4.93079, 0.140866)
+bones/25/rotation = Quaternion(0.000115367, 0.707107, -0.707107, -0.000115367)
