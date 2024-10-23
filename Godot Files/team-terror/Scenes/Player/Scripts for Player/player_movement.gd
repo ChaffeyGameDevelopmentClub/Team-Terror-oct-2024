@@ -36,6 +36,9 @@ const JUMP_VELOCITY = 4.5
 
 #Do you have a key on spawn? no so die.
 var gotKey = false
+#Animation vars including another fucking boolean because it will play over itself
+@export var headBobbing : AnimationPlayer
+var isAnimating = false
 
 func _ready() -> void:
 	flashlight_timer.start()
@@ -46,6 +49,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	#clamps values, for some reason it works better here so lets call it magic
 	stamina = clamp(stamina,0,max_stamina)
+
 	if get_tree().paused==false:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		if event is InputEventMouseMotion:
@@ -83,6 +87,18 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		if isSprint ==false:
+			if isAnimating == false:
+				isAnimating = true
+				headBobbing.play("player_walk_headbob")
+				await(headBobbing.animation_finished)
+				isAnimating =false
+		if isSprint == true:
+			if isAnimating == false:
+				isAnimating = true
+				headBobbing.play("player_run_headbob")
+				await(headBobbing.animation_finished)
+				isAnimating =false
 		velocity.x = direction.x * player_speed
 		velocity.z = direction.z * player_speed
 	else:
@@ -117,16 +133,20 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 	#Zoom
 	if Input.is_action_just_pressed('right_click'):
-		camera_fov -= 25
+		camera_fov = 25
 	if Input.is_action_just_released('right_click'):
-		camera_fov += 25
+		camera_fov = 50
 	#Sprint
 	if Input.is_action_pressed("sprint") and isTired==false:
 		player_speed = 6
 		isSprint=true
-	else: 
+	elif isTired==true: 
 		player_speed = 2.5
 		isSprint=false
+	if Input.is_action_just_released("sprint"):
+		isSprint = false
+		player_speed = 2.5
+		pass
 	#checks if the light is on and how much energy it should have
 	if Input.is_action_just_pressed("left_click"):
 		if isFlashlighting == true and isFlashingdead==false:
