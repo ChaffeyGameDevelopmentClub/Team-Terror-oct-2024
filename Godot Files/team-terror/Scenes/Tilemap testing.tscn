@@ -2,7 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://kx2vuje4x2w7" path="res://Resources/MotelTileSet/MotelTileset.tres" id="1_o47k0"]
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Player/Scripts for Player/player.tscn" id="2_ra24r"]
-[ext_resource type="PackedScene" uid="uid://dpa8yd8qqhwpo" path="res://Assets/MotelTileset/lamp.tscn" id="3_o327k"]
+[ext_resource type="PackedScene" path="res://Assets/MotelTileset/lamp.tscn" id="3_o327k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_okx42"]
 sky_top_color = Color(0, 0, 0, 1)
