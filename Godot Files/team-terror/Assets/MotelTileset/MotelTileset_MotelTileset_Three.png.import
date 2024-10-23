@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrldefvfekfe"
+uid="uid://cjdosm5si0vwu"
 path.s3tc="res://.godot/imported/MotelTileset_MotelTileset_Three.png-551f83c8762c7eb2b40c9f96c01feb81.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "8e55a61490550a076f3883f97a540ba1"
+"md5": "7d9d677d208a088056648c565b1748c4"
 }
 
 [deps]
