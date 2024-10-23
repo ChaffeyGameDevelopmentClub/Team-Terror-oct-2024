@@ -7,7 +7,7 @@ var player = null
 @export var playerNode : CharacterBody3D
 @export var nav_agent : NavigationAgent3D
 @export var seenTimer : Timer
-
+@export var sight : RayCast3D
 var seen : bool
 
 #States
@@ -24,9 +24,15 @@ func _ready():
 	pass
 func _process(delta):
 	velocity = Vector3.ZERO
+	
+	if sight.get_collider() == playerNode:
+		seen = true
+	
+	
 	if seen == false:
 		entity_state = 0
-	entity_state = 1
+	if seen == true:
+		entity_state = 1
 	#States
 	match entity_state:
 		0: #Idle
@@ -40,6 +46,7 @@ func _process(delta):
 			#move to location
 			var next_nav_point = nav_agent.get_next_path_position()
 			var Newvelocity = (next_nav_point - global_transform.origin).normalized() * SPEED
+			look_at(playerNode.global_transform.origin)
 			set_velocity(Newvelocity)
 			#If player is out of los
 			if seen == false:
@@ -64,8 +71,8 @@ func _process(delta):
 	move_and_slide()
 
 func lookAt(target):
-	self.rotate(Vector3(x,0,x))
-
+	self.rotate_y(1)
+	
 func _on_seen_timer_timeout() -> void:
 	#switch to wander
 	pass

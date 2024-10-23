@@ -41,7 +41,6 @@ shadow_enabled = true
 
 [node name="BellHopBob" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("1_hxcop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.688, 2.99262, 4.0307)
-entity_state = 1
 playerNode = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_rtf2u")]

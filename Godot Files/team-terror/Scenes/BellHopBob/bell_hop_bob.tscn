@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://dpoy5n1t5pgvp"]
+[gd_scene load_steps=81 format=4 uid="uid://dpoy5n1t5pgvp"]
 
 [ext_resource type="Script" path="res://Scripts/BellHopBob/bell_hop_bob.gd" id="1_4qfro"]
 [ext_resource type="Texture2D" uid="uid://b4x22chwpty0l" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_head.png" id="1_owukb"]
@@ -4008,21 +4008,19 @@ _data = {
 radius = 1.15272
 height = 4.1196
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b1t03"]
-size = Vector3(3.14252, 3.02191, 7.26685)
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_of5x1"]
 height = 1.85989
-radius = 2.44126
+radius = 2.84429
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6lnwf"]
 height = 3.37968
-radius = 1.45011
+radius = 1.66494
 
-[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer")]
+[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "sight")]
 script = ExtResource("1_4qfro")
 nav_agent = NodePath("NavigationAgent3D")
 seenTimer = NodePath("SeenTimer")
+sight = NodePath("Node3D/Sight")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.32273, 0, 0, 0, 0.32273, 0, 0, 0, 0.32273, 0, -0.527433, 0)
@@ -4315,13 +4313,8 @@ path_desired_distance = 3.0
 
 [node name="Node3D" type="Node3D" parent="."]
 
-[node name="Sight" type="Area3D" parent="Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Sight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0538025, 0.108063, -3.13342)
-shape = SubResource("BoxShape3D_b1t03")
-
-[node name="RayCast3D" type="RayCast3D" parent="Node3D/Sight"]
+[node name="Sight" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376166, 0)
 target_position = Vector3(0, 0, -10)
 debug_shape_custom_color = Color(0.874344, 0.283072, 0, 1)
 debug_shape_thickness = 5
