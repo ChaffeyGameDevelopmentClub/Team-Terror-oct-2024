@@ -10,26 +10,56 @@ const JUMP_VELOCITY = 4.5
 @export var player_speed = 2.5
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
-@onready var health = 2
+#Stamina check
 @onready var stamina=100
+@onready var max_stamina=200
 @onready var isSprint= false
 @onready var isTired= false
 @onready var isSound= false
-#Camera effects
+#Camera effects color might not be used im sorry :(
 @export var camera_fov =50
 @export var camera_color = 0
+#Flashlight stuff, first exporting AND THEN KILLING
+@onready var hand :=$Hand
+@onready var flashlight :=$Hand/Flashlight
+@onready var isFlashlighting= true
+@onready var flashBright = 3.5
+@onready var flashlight_timer := $Hand/Flashlight/Flashlight_Battery 
+@onready var isFlashingdead = false
+@onready var flicker = false
+
+func _ready() -> void:
+	flashlight_timer.start()
+	pass
+
+#literally the camera function
 
 func _unhandled_input(event: InputEvent) -> void:
-	clamp(stamina,0,200)
+	#clamps values, for some reason it works better here so lets call it magic
+	stamina = clamp(stamina,0,max_stamina)
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventMouseMotion:
 		neck.rotate_y(-event.relative.x*sensitivity_camera)
 		camera.rotate_x(-event.relative.y*sensitivity_camera)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
+		
+		#flashlight rotate moment
+		flashlight.rotate_y(-event.relative.x*sensitivity_camera)
+		flashlight.rotation.x=camera.rotation.x
 		pass
 	pass
-	
+
+#die
+func _die():
+	pass
+
+#literally the everything function
 func _physics_process(delta: float) -> void:
+	
+	if flashlight_timer.get_time_left()<20:
+		flashBright = randf_range(0,.7)
+		pass
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -62,12 +92,14 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
+#input testing but we need to get rid of test inputs in the final build
 func _input(event: InputEvent) -> void:
+	#increase fov test and decrease
 	if Input.is_action_pressed("test_inp_1"):
 		camera_fov +=10
 	if Input.is_action_pressed("test_inp_2"):
 		camera_fov -=10
+	#exits the game so you don't click on x or whatever
 	if Input.is_action_just_pressed("exit_test"):
 		get_tree().quit()
 	#Zoom
@@ -82,13 +114,26 @@ func _input(event: InputEvent) -> void:
 	else: 
 		player_speed = 2.5
 		isSprint=false
-		
+	#checks if the light is on and how much energy it should have
+	if Input.is_action_just_pressed("left_click"):
+		if isFlashlighting == true and isFlashingdead==false:
+			isFlashlighting = false
+			flashlight_timer.set_paused(true)
+		elif isFlashlighting == false and isFlashingdead ==false:
+			isFlashlighting = true
+			flashlight_timer.set_paused(false)
+	if isFlashlighting == true:
+		flashlight.light_energy = flashBright
+	else:
+		flashlight.light_energy = 0
+	#walking sound DELETE ASAP
 	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
 		isSound = true
 		Walk.play()
 		await(Walk.finished)
 		isSound=false
 		pass
+	#Warp DELETE LATER
 	if Input.is_action_just_pressed("test3"):
 		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass

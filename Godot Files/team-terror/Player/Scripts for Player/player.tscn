@@ -12,17 +12,16 @@ height = 14.408
 
 [node name="Player" type="Node3D"]
 
-[node name="Run" type="AudioStreamPlayer" parent="."]
+[node name="Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_lgmok")
 
-[node name="Walk" type="AudioStreamPlayer" parent="."]
+[node name="Run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iwfo3")
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk", "Run")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk")]
 process_mode = 3
 script = ExtResource("1_n3sex")
-Walk = NodePath("../Walk")
-Run = NodePath("../Run")
+Walk = NodePath("../Run")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
@@ -40,3 +39,19 @@ fov = 50.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
 shape = SubResource("CapsuleShape3D_syjgj")
+
+[node name="Hand" type="Node3D" parent="Player"]
+
+[node name="Flashlight" type="SpotLight3D" parent="Player/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929642, 0)
+light_color = Color(0.973063, 0.99249, 0.826257, 1)
+light_energy = 3.586
+light_volumetric_fog_energy = 3.0
+light_size = 3.18
+light_specular = 2.195
+distance_fade_length = 18.65
+spot_range = 8.00131
+spot_angle = 20.9475
+
+[node name="Flashlight_Battery" type="Timer" parent="Player/Hand/Flashlight"]
+wait_time = 30.0
