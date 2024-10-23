@@ -31,7 +31,7 @@ const JUMP_VELOCITY = 4.5
 #Interactable distance from the player for doors and getting keys or whatever
 @export var interactable : RayCast3D
 
-#Do you have a key on spawn?
+#Do you have a key on spawn? no so die.
 var gotKey = false
 
 func _ready() -> void:
