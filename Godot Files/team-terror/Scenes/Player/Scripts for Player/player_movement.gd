@@ -173,3 +173,6 @@ func _input(event: InputEvent) -> void:
 					collider.left_open()
 				else:
 					TextOverlay.Door_Locked()
+	if Input.is_action_just_pressed("pause"):
+		
+		pass
