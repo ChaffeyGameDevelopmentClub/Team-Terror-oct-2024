@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b50218grqmdee"]
+[gd_scene load_steps=3 format=3 uid="uid://doxur7y8580t2"]
 
-[ext_resource type="ArrayMesh" uid="uid://n135ho46oh" path="res://Assets/testing.tres" id="1_rd2gx"]
+[ext_resource type="ArrayMesh" uid="uid://mjary1h8q15h" path="res://Assets/testing.tres" id="1_rd2gx"]
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_pb5mx"]
 item/0/name = "Weird"

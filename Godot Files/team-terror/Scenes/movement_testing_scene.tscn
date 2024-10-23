@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chkluhgx06u24"]
 
-[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/Werid.glb" id="1_nb0g4"]
+[ext_resource type="PackedScene" uid="uid://dqtpcs1xjo1fw" path="res://Assets/weird Model/Werid.glb" id="1_nb0g4"]
 
 [node name="Movement Testing Scene" type="Node3D"]
 
