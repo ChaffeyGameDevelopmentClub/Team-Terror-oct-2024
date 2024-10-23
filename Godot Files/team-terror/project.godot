@@ -22,6 +22,7 @@ AppConfig="*res://addons/maaacks_menus_template/base/scenes/autoloads/app_config
 SceneLoader="*res://addons/maaacks_menus_template/base/scenes/autoloads/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
+TextOverlay="*res://Scenes/On Screen Text/text_overlay.tscn"
 
 [editor_plugins]
 
@@ -40,6 +41,7 @@ folder_colors={
 door_transition=""
 left_side_hinge=""
 right_side_hinge=""
+key1=""
 
 [input]
 

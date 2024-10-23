@@ -165,3 +165,5 @@ func _input(event: InputEvent) -> void:
 				pass
 			if collider.is_in_group("key1"):
 				get_key();
+				collider.self_destruct()
+				TextOverlay.Get_Key_Area_1()
