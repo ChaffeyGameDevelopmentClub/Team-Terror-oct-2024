@@ -20,14 +20,14 @@ ssao_enabled = true
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_oied1"]
-vertices = PackedVector3Array(-8.1575, 1, -8.6175, -8.1575, 1, 8.6325, 8.0925, 1, 8.6325, 8.0925, 1, -8.6175)
+vertices = PackedVector3Array(-33.9, 1, -30.77, -33.9, 1, 30.73, 33.85, 1, 30.73, 33.85, 1, -30.77)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mp6i8"]
-size = Vector3(17.315, 1, 18.235)
+size = Vector3(68.8, 1, 62.54)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_858dw"]
-data = PackedVector3Array(-8.6575, 0.5, 9.1175, 8.6575, 0.5, 9.1175, -8.6575, -0.5, 9.1175, 8.6575, 0.5, 9.1175, 8.6575, -0.5, 9.1175, -8.6575, -0.5, 9.1175, 8.6575, 0.5, -9.1175, -8.6575, 0.5, -9.1175, 8.6575, -0.5, -9.1175, -8.6575, 0.5, -9.1175, -8.6575, -0.5, -9.1175, 8.6575, -0.5, -9.1175, 8.6575, 0.5, 9.1175, 8.6575, 0.5, -9.1175, 8.6575, -0.5, 9.1175, 8.6575, 0.5, -9.1175, 8.6575, -0.5, -9.1175, 8.6575, -0.5, 9.1175, -8.6575, 0.5, -9.1175, -8.6575, 0.5, 9.1175, -8.6575, -0.5, -9.1175, -8.6575, 0.5, 9.1175, -8.6575, -0.5, 9.1175, -8.6575, -0.5, -9.1175, 8.6575, 0.5, 9.1175, -8.6575, 0.5, 9.1175, 8.6575, 0.5, -9.1175, -8.6575, 0.5, 9.1175, -8.6575, 0.5, -9.1175, 8.6575, 0.5, -9.1175, -8.6575, -0.5, 9.1175, 8.6575, -0.5, 9.1175, -8.6575, -0.5, -9.1175, 8.6575, -0.5, 9.1175, 8.6575, -0.5, -9.1175, -8.6575, -0.5, -9.1175)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ktx0l"]
+data = PackedVector3Array(-34.4, 0.5, 31.27, 34.4, 0.5, 31.27, -34.4, -0.5, 31.27, 34.4, 0.5, 31.27, 34.4, -0.5, 31.27, -34.4, -0.5, 31.27, 34.4, 0.5, -31.27, -34.4, 0.5, -31.27, 34.4, -0.5, -31.27, -34.4, 0.5, -31.27, -34.4, -0.5, -31.27, 34.4, -0.5, -31.27, 34.4, 0.5, 31.27, 34.4, 0.5, -31.27, 34.4, -0.5, 31.27, 34.4, 0.5, -31.27, 34.4, -0.5, -31.27, 34.4, -0.5, 31.27, -34.4, 0.5, -31.27, -34.4, 0.5, 31.27, -34.4, -0.5, -31.27, -34.4, 0.5, 31.27, -34.4, -0.5, 31.27, -34.4, -0.5, -31.27, 34.4, 0.5, 31.27, -34.4, 0.5, 31.27, 34.4, 0.5, -31.27, -34.4, 0.5, 31.27, -34.4, 0.5, -31.27, 34.4, 0.5, -31.27, -34.4, -0.5, 31.27, 34.4, -0.5, 31.27, -34.4, -0.5, -31.27, 34.4, -0.5, 31.27, 34.4, -0.5, -31.27, -34.4, -0.5, -31.27)
 
 [node name="Node3D" type="Node3D"]
 
@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.688, 2.99262, 4.0307)
 playerNode = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_rtf2u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27933, 1.71083, 2.81174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.149, 1.71083, -7.50653)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_oied1")
@@ -56,4 +56,4 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_858dw")
+shape = SubResource("ConcavePolygonShape3D_ktx0l")

@@ -4016,11 +4016,13 @@ radius = 2.84429
 height = 3.37968
 radius = 1.66494
 
-[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "stalkingTimer", "sight")]
+[node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "stalkingTimer", "wanderTimer", "idleTimer", "sight")]
 script = ExtResource("1_4qfro")
 nav_agent = NodePath("NavigationAgent3D")
 seenTimer = NodePath("SeenTimer")
 stalkingTimer = NodePath("StalkingTimer")
+wanderTimer = NodePath("WanderTimer")
+idleTimer = NodePath("IdleTimer")
 sight = NodePath("Node3D/Sight")
 
 [node name="Armature" type="Node3D" parent="."]
@@ -4031,7 +4033,7 @@ bones/0/name = "Root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19209e-07, 0.59794)
 bones/0/enabled = true
-bones/0/position = Vector3(0, -0.235453, 0.59794)
+bones/0/position = Vector3(0, -0.264763, 0.59794)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Lower Back"
@@ -4039,7 +4041,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 4.76837e-07, 1.61106e-07, 0.941195, -0.337864, -4.48797e-07, 0.337864, 0.941195, 0, 0.673695, 0)
 bones/1/enabled = true
 bones/1/position = Vector3(0, 0.673695, 0)
-bones/1/rotation = Quaternion(0.171472, 2.34887e-07, 4.0882e-08, 0.985189)
+bones/1/rotation = Quaternion(0.171466, -0.0077714, 0.00135269, 0.985159)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Mid Back"
 bones/2/parent = 1
@@ -4060,7 +4062,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(1, -3.93719e-08, 1.62823e-09, 3.93719e-08, 0.996585, -0.0825689, 1.62823e-09, 0.0825689, 0.996585, -3.55271e-14, 1.64547, 7.45058e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(-3.55271e-14, 1.64547, 7.45058e-08)
-bones/4/rotation = Quaternion(0.0413197, 0, 1.97028e-08, 0.999146)
+bones/4/rotation = Quaternion(0.0412409, 0.0423694, 0.0448423, 0.997243)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Shoulder.L"
 bones/5/parent = 3
@@ -4074,14 +4076,14 @@ bones/6/parent = 5
 bones/6/rest = Transform3D(0.704972, -0.622808, -0.3393, 0.622808, 0.314757, 0.716267, -0.3393, -0.716267, 0.609785, 0, 2.20625, -1.11759e-07)
 bones/6/enabled = true
 bones/6/position = Vector3(0, 2.20625, -1.11759e-07)
-bones/6/rotation = Quaternion(-0.413153, 0.0121279, 0.420687, 0.807576)
+bones/6/rotation = Quaternion(-0.420556, 0.0118389, 0.4134, 0.807523)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Forearm.L"
 bones/7/parent = 6
 bones/7/rest = Transform3D(-0.622808, -0.189665, 0.759037, -0.314757, 0.948937, -0.0211497, -0.716266, -0.252084, -0.650704, 1.11759e-07, 2.86443, -5.21541e-08)
 bones/7/enabled = true
 bones/7/position = Vector3(1.11759e-07, 2.86443, -5.21541e-08)
-bones/7/rotation = Quaternion(-0.140498, 0.897559, -0.0761048, 0.410921)
+bones/7/rotation = Quaternion(-0.133976, 0.89631, -0.0991094, 0.410921)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/name = "Finger.L"
 bones/8/parent = 7
@@ -4095,14 +4097,14 @@ bones/9/parent = 3
 bones/9/rest = Transform3D(0, 1, -4.61936e-07, -1, 0, 3.72529e-07, 3.72529e-07, 4.61936e-07, 1, -3.55271e-14, 1.64547, 7.45058e-08)
 bones/9/enabled = true
 bones/9/position = Vector3(-3.55271e-14, 1.64547, 7.45058e-08)
-bones/9/rotation = Quaternion(-0.035327, 0.0280259, -0.726888, 0.685274)
+bones/9/rotation = Quaternion(-0.0202397, 0.0160567, -0.718691, 0.694849)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "Bicep.R"
 bones/10/parent = 9
 bones/10/rest = Transform3D(0.704972, 0.622808, 0.3393, -0.622808, 0.314757, 0.716267, 0.3393, -0.716267, 0.609785, 0, 2.20625, -1.11759e-07)
 bones/10/enabled = true
 bones/10/position = Vector3(0, 2.20625, -1.11759e-07)
-bones/10/rotation = Quaternion(-0.44171, 1.2856e-07, -0.384075, 0.810789)
+bones/10/rotation = Quaternion(-0.44171, 1.21224e-07, -0.384075, 0.810789)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/name = "Forearm.R"
 bones/11/parent = 10
@@ -4137,7 +4139,7 @@ bones/15/parent = 14
 bones/15/rest = Transform3D(0.940391, -0.319233, -0.117285, 0.224502, 0.323636, 0.919162, -0.25547, -0.890702, 0.376013, 9.0804e-08, 1.23796, -7.45058e-08)
 bones/15/enabled = true
 bones/15/position = Vector3(9.0804e-08, 1.23796, -7.45058e-08)
-bones/15/rotation = Quaternion(-0.555333, 0.0464327, 0.169374, 0.812873)
+bones/15/rotation = Quaternion(-0.556943, 0.0425231, 0.167322, 0.81241)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/name = "Heart_2"
 bones/16/parent = 1
@@ -4145,7 +4147,7 @@ bones/16/rest = Transform3D(1, 4.48797e-07, 6.37943e-07, -4.48797e-07, -0.337864
 bones/16/enabled = true
 bones/16/position = Vector3(-2.84217e-14, 1.40387, 5.96046e-08)
 bones/16/rotation = Quaternion(-0.817883, -4.9396e-14, -3.89997e-07, 0.575385)
-bones/16/scale = Vector3(1.08831, 1.08831, 1.08831)
+bones/16/scale = Vector3(1.1269, 1.1269, 1.1269)
 bones/17/name = "Rib1.R"
 bones/17/parent = 1
 bones/17/rest = Transform3D(-0.0607329, 0.983711, 0.169185, -0.99814, -0.0607331, -0.00517933, 0.00518014, -0.169185, 0.985571, -2.84217e-14, 1.40387, 5.96046e-08)
@@ -4172,41 +4174,41 @@ bones/20/parent = 0
 bones/20/rest = Transform3D(-1, 0.00082408, -0.000217885, -0.000789729, -0.9919, -0.12702, -0.000320795, -0.12702, 0.9919, -0.944369, 0.0553873, -0.686672)
 bones/20/enabled = true
 bones/20/position = Vector3(-0.944369, 0.0553873, -0.686672)
-bones/20/rotation = Quaternion(0.00176, 0.0238754, 0.999713, -0.00103441)
+bones/20/rotation = Quaternion(-0.0041303, -0.326088, 0.94477, -0.0325476)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/name = "Shin.L"
 bones/21/parent = 20
 bones/21/rest = Transform3D(0.999337, 0.036395, -0.000119095, -0.0348994, 0.957331, -0.286879, -0.010327, 0.286693, 0.957967, -1.13621e-07, 2.04112, 3.475e-08)
 bones/21/enabled = true
 bones/21/position = Vector3(-1.13621e-07, 2.04112, 3.475e-08)
-bones/21/rotation = Quaternion(0.204867, 0.00151701, -0.019018, 0.978604)
+bones/21/rotation = Quaternion(0.233826, 0.00301609, -0.0381922, 0.971523)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "Thigh.R"
 bones/22/parent = 0
 bones/22/rest = Transform3D(-1, -0.00082408, 0.000217885, 0.000789729, -0.9919, -0.12702, 0.000320795, -0.12702, 0.9919, 0.944369, 0.0553873, -0.686672)
 bones/22/enabled = true
 bones/22/position = Vector3(0.944369, 0.0553873, -0.686672)
-bones/22/rotation = Quaternion(0.0131397, -0.356397, 0.93352, 0.036736)
+bones/22/rotation = Quaternion(-0.00245929, 0.0125863, 0.999913, 0.00299857)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "Shin.R"
 bones/23/parent = 22
 bones/23/rest = Transform3D(0.999337, -0.036395, 0.000119045, 0.0348993, 0.957331, -0.286879, 0.010327, 0.286693, 0.957967, 1.13621e-07, 2.04112, 3.475e-08)
 bones/23/enabled = true
 bones/23/position = Vector3(1.13621e-07, 2.04112, 3.475e-08)
-bones/23/rotation = Quaternion(0.281858, -0.00461806, 0.084245, 0.955739)
+bones/23/rotation = Quaternion(0.305572, -0.00122619, 0.0279109, 0.951759)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "Foot.R"
 bones/24/parent = -1
 bones/24/rest = Transform3D(-0.999102, 0, 0.0423595, -0.0423595, 0, -0.999102, 0, -1, 0, 1.04982, -4.93079, 0.140866)
 bones/24/enabled = true
-bones/24/position = Vector3(1.07871, -4.64371, -1.91442)
+bones/24/position = Vector3(1.07059, -4.64371, 1.77096)
 bones/24/rotation = Quaternion(-0.0149797, 0.706948, -0.706948, 0.0149797)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "Foot.L"
 bones/25/parent = -1
 bones/25/rest = Transform3D(-1, 0, -0.000326308, 0.000326308, 0, -1, 0, -1, 0, -1.04982, -4.93079, 0.140866)
 bones/25/enabled = true
-bones/25/position = Vector3(-1.04353, -4.88404, 1.34138)
+bones/25/position = Vector3(-0.850528, -4.7595, -1.92056)
 bones/25/rotation = Quaternion(0.000115367, 0.707107, -0.707107, -0.000115367)
 bones/25/scale = Vector3(1, 1, 1)
 
@@ -4333,9 +4335,25 @@ shape = SubResource("CylinderShape3D_6lnwf")
 
 [node name="SeenTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="StalkingTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Testing Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [connection signal="timeout" from="SeenTimer" to="." method="_on_seen_timer_timeout"]
 [connection signal="timeout" from="StalkingTimer" to="." method="_on_stalking_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="Testing Timer" to="." method="_on_testing_timer_timeout"]
