@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://do73ciyy4senj"]
 
 [ext_resource type="AudioStream" uid="uid://tkgqyjo6rrr2" path="res://Assets/all sfx/Player_SFX/walk.mp3" id="1_lgmok"]
-[ext_resource type="Script" path="res://Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
+[ext_resource type="Script" path="res://Scenes/Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
 [ext_resource type="AudioStream" uid="uid://cm8fbo34x2p86" path="res://Assets/all sfx/Player_SFX/run.mp3" id="2_iwfo3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
@@ -18,10 +18,16 @@ stream = ExtResource("1_lgmok")
 [node name="Run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iwfo3")
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walksfx", "Runsfx", "neck", "camera", "hand", "flashlight", "flashlight_timer")]
 process_mode = 3
 script = ExtResource("1_n3sex")
-Walk = NodePath("../Run")
+Walksfx = NodePath("../Walk")
+Runsfx = NodePath("../Run")
+neck = NodePath("Neck")
+camera = NodePath("Neck/Camera3D")
+hand = NodePath("Hand")
+flashlight = NodePath("Hand/Flashlight")
+flashlight_timer = NodePath("Hand/Flashlight/Flashlight_Battery")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
@@ -51,6 +57,7 @@ light_size = 3.18
 light_specular = 2.195
 distance_fade_length = 18.65
 spot_range = 8.00131
+spot_attenuation = 2.0
 spot_angle = 20.9475
 
 [node name="Flashlight_Battery" type="Timer" parent="Player/Hand/Flashlight"]

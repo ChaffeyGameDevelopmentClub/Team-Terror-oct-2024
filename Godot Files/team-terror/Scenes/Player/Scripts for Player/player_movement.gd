@@ -1,15 +1,15 @@
 extends CharacterBody3D
 
 #SFX
-@export var Walk: AudioStreamPlayer
-@export var Run: AudioStreamPlayer
+@export var Walksfx: AudioStreamPlayer
+@export var Runsfx: AudioStreamPlayer
 #I didn't finish this oops
 const JUMP_VELOCITY = 4.5
 #Speed and camera sensitivity vars
 @export var sensitivity_camera = .001
 @export var player_speed = 2.5
-@onready var neck := $Neck
-@onready var camera := $Neck/Camera3D
+@export var neck : Node3D
+@export var camera : Node3D
 #Stamina check
 @onready var stamina=100
 @onready var max_stamina=200
@@ -20,11 +20,11 @@ const JUMP_VELOCITY = 4.5
 @export var camera_fov =50
 @export var camera_color = 0
 #Flashlight stuff, first exporting AND THEN KILLING
-@onready var hand :=$Hand
-@onready var flashlight :=$Hand/Flashlight
+@export var hand : Node3D
+@export var flashlight : SpotLight3D
 @onready var isFlashlighting= true
 @onready var flashBright = 3.5
-@onready var flashlight_timer := $Hand/Flashlight/Flashlight_Battery 
+@export var flashlight_timer : Timer
 @onready var isFlashingdead = false
 @onready var flicker = false
 
@@ -126,11 +126,11 @@ func _input(event: InputEvent) -> void:
 		flashlight.light_energy = flashBright
 	else:
 		flashlight.light_energy = 0
-	#walking sound DELETE ASAP
+	#Walksfxing sound DELETE ASAP
 	if velocity.x!=0 and velocity.z!=0 and isSound != true and is_on_floor():
 		isSound = true
-		Walk.play()
-		await(Walk.finished)
+		Walksfx.play()
+		await(Walksfx.finished)
 		isSound=false
 		pass
 	#Warp DELETE LATER
