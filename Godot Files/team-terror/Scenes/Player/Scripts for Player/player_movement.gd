@@ -152,18 +152,19 @@ func _input(event: InputEvent) -> void:
 	#fire it out smartass
 	if Input.is_action_just_pressed("interaction"):
 		var collider= interactable.get_collider()
-		print("You tried!")
 		if collider is StaticBody3D:
 			if collider.is_in_group("door_transition"):
-				print("HA!")
 				collider.interact()
 			if collider.is_in_group("left_side_hinge"):
 				collider.left_open()
-				pass
 			if collider.is_in_group("right_side_hinge"):
 				collider.right_open()
-				pass
 			if collider.is_in_group("key1"):
 				get_key();
 				collider.self_destruct()
 				TextOverlay.Get_Key_Area_1()
+			if collider.is_in_group("locked_door"):
+				if gotKey == true:
+					collider.left_open()
+				else:
+					TextOverlay.Door_Locked()

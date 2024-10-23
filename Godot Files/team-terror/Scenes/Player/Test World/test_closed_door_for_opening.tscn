@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://imvfbkdp7kfr"]
+[gd_scene load_steps=10 format=3 uid="uid://imvfbkdp7kfr"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Test World/door_rotation.gd" id="1_seggy"]
+[ext_resource type="Script" path="res://Scenes/Player/Test World/closed_door.gd" id="1_ahqct"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/left_side_hinge_door.gd" id="2_qcmb8"]
-[ext_resource type="Script" path="res://Scenes/Player/Test World/right_side_hinge.gd" id="3_kx1gm"]
 
 [sub_resource type="Animation" id="Animation_brn1l"]
 length = 0.001
@@ -64,14 +63,10 @@ height = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qni0g"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5lyvc"]
-size = Vector3(1, 1, 0.94191)
-
-[node name="TestDoorForopeningLocked" type="Node3D" node_paths=PackedStringArray("left_hinge", "right_hinge", "opens")]
+[node name="TestDoorForopeningLocked" type="Node3D" node_paths=PackedStringArray("left_hinge", "opens")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00171, 0)
-script = ExtResource("1_seggy")
+script = ExtResource("1_ahqct")
 left_hinge = NodePath("MeshInstance3D3/MeshInstance3D/MeshInstance3D2/LeftSideHinge")
-right_hinge = NodePath("MeshInstance3D3/MeshInstance3D/MeshInstance3D2/RightSideHinge")
 opens = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -93,17 +88,9 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.781006, 0, -0.341545)
 mesh = SubResource("SphereMesh_pogrc")
 
-[node name="LeftSideHinge" type="StaticBody3D" parent="MeshInstance3D3/MeshInstance3D/MeshInstance3D2" groups=["left_side_hinge"]]
+[node name="LeftSideHinge" type="StaticBody3D" parent="MeshInstance3D3/MeshInstance3D/MeshInstance3D2" groups=["locked_door"]]
 script = ExtResource("2_qcmb8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/MeshInstance3D/MeshInstance3D2/LeftSideHinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.34454)
 shape = SubResource("BoxShape3D_qni0g")
-
-[node name="RightSideHinge" type="StaticBody3D" parent="MeshInstance3D3/MeshInstance3D/MeshInstance3D2" groups=["right_side_hinge"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5881, 0, 0)
-script = ExtResource("3_kx1gm")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/MeshInstance3D/MeshInstance3D2/RightSideHinge"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.361267)
-shape = SubResource("BoxShape3D_5lyvc")

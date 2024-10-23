@@ -5,3 +5,8 @@ func Get_Key_Area_1():
 	text_play.play("key_text")
 	await(text_play.animation_finished)
 	text_play.play("key_fade_out")
+
+func Door_Locked():
+	text_play.play("door_locked_text")
+	await(text_play.animation_finished)
+	text_play.play("door_text_fade_out")

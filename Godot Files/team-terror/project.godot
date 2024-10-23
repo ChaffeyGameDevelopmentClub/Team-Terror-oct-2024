@@ -42,6 +42,7 @@ door_transition=""
 left_side_hinge=""
 right_side_hinge=""
 key1=""
+locked_door=""
 
 [input]
 

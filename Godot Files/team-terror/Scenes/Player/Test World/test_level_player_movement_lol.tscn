@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bgiay576fyrov"]
+[gd_scene load_steps=22 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Scenes/Player/Scripts for Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blmyed4is3vev" path="res://Scenes/Player/Test World/test_door_for_opening.tscn" id="7_gnank"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/testcast.gd" id="7_uwp48"]
 [ext_resource type="PackedScene" uid="uid://bykan1uxa6dub" path="res://Scenes/items/key.tscn" id="8_mm6bu"]
+[ext_resource type="PackedScene" uid="uid://imvfbkdp7kfr" path="res://Scenes/Player/Test World/test_closed_door_for_opening.tscn" id="9_u5aca"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
@@ -133,3 +134,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154344, 1.57109, -19.7593)
 
 [node name="Node3D3" parent="." instance=ExtResource("8_mm6bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95078, 3.76598, -17.8565)
+
+[node name="TestDoorForopeningLocked" parent="." instance=ExtResource("9_u5aca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9366, 1.00171, -22.5021)
