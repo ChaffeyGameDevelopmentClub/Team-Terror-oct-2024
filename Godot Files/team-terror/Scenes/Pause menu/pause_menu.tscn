@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://pir7fuqoy1o5"]
+[gd_scene load_steps=3 format=3 uid="uid://pir7fuqoy1o5"]
 
+[ext_resource type="Script" path="res://Scenes/Pause menu/resume.gd" id="1_c7pws"]
 [ext_resource type="Script" path="res://Scenes/Pause menu/quit.gd" id="1_oldyb"]
 
 [node name="PauseMenu" type="Control"]
@@ -10,50 +11,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resume" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -63.0
-offset_top = 73.0
-offset_right = 7.0
-offset_bottom = 104.0
-grow_horizontal = 2
-scale = Vector2(3, 3)
-text = "Resume"
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_vertical = 4
 
-[node name="Options" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -19.5
-offset_right = 9.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+script = ExtResource("1_c7pws")
+
+[node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 text = "Options"
 
-[node name="Quit" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -22.0
-offset_top = -128.0
-offset_right = 20.0
-offset_bottom = -97.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(3, 3)
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 text = "Quit"
 script = ExtResource("1_oldyb")
 
-[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="PanelContainer/VBoxContainer/Resume" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Options" to="PanelContainer/VBoxContainer/Options" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="PanelContainer/VBoxContainer/Quit" method="_on_pressed"]

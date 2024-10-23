@@ -1,4 +1,7 @@
 extends CharacterBody3D
+#pause my menu idiot
+@export var PauseMenu: Control
+var paused = false
 
 #SFX
 @export var Walksfx: AudioStreamPlayer
@@ -177,5 +180,12 @@ func _input(event: InputEvent) -> void:
 		Pause()
 		pass
 func Pause():
-	
+	if paused:
+		PauseMenu.hide()
+		Engine.time_scale = 1
+		pass
+	else:
+		PauseMenu.show()
+		Engine.time_scale = 0
+		pass
 	pass
