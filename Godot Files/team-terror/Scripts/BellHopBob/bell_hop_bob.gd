@@ -58,7 +58,7 @@ func _process(delta):
 			
 			pass
 		1: #Chase - When seen/Heard
-			SPEED = 3
+			SPEED = 5
 			ani.play('BobAnimations/Run')
 			#Get players location
 			setTarget(playerNode.global_transform.origin)

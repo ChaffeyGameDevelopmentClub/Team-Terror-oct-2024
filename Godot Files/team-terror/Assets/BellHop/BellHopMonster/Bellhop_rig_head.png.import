@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct2eorc53wdb3"
+uid="uid://0y4wt38r8cbd"
 path.s3tc="res://.godot/imported/Bellhop_rig_head.png-f1d546aee6afadbaa9c1c0df8d8d84fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "9eb5f602514f4bf8d91c0eecd5b89b20"
 }
 
 [deps]
