@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bnkd4midnoexd" path="res://Assets/MotelTileset/MotelTileset.glb" id="1_1uo3x"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bmq1f"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gotxb"]
 data = PackedVector3Array(-1, -0.1, 1, -1, 0.1, -1, -1, 0.1, 1, -1, -0.1, 1, -1, -0.1, -1, -1, 0.1, -1, -1, -0.1, -1, 1, 0.1, -1, -1, 0.1, -1, -1, -0.1, -1, 1, -0.1, -1, 1, 0.1, -1, 1, -0.1, -1, 1, 0.1, 1, 1, 0.1, -1, 1, -0.1, -1, 1, -0.1, 1, 1, 0.1, 1, 1, -0.1, 1, -1, 0.1, 1, 1, 0.1, 1, 1, -0.1, 1, -1, -0.1, 1, -1, 0.1, 1, -1, -0.1, -1, 1, -0.1, 1, 1, -0.1, -1, -1, -0.1, -1, -1, -0.1, 1, 1, -0.1, 1, 1, 0.1, -1, -1, 0.1, 1, -1, 0.1, -1, 1, 0.1, -1, 1, 0.1, 1, -1, 0.1, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_palls"]
@@ -79,7 +79,7 @@ data = PackedVector3Array(-1, -0.1, 1, -1, 0.1, -1, -1, 0.1, 1, -1, -0.1, 1, -1,
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_003" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="0"]
-shape = SubResource("ConcavePolygonShape3D_bmq1f")
+shape = SubResource("ConcavePolygonShape3D_gotxb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Door Outer" index="0"]
 
