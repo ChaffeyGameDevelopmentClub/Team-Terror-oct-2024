@@ -34,6 +34,9 @@ const JUMP_VELOCITY = 4.5
 #Interactable distance from the player for doors and getting keys or whatever
 @export var interactable : RayCast3D
 
+
+#pause menu or something idk
+@export var pause : Control
 #Do you have a key on spawn? no so die.
 var gotKey = false
 #Animation vars including another fucking boolean because it will play over itself
@@ -204,7 +207,7 @@ func _input(event: InputEvent) -> void:
 #Pause, completely pauses everything so you can go into options
 func Pause():
 	if get_tree().paused == false:
-		PauseMenu.show()
+		pause.show()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 		Engine.time_scale = 0
