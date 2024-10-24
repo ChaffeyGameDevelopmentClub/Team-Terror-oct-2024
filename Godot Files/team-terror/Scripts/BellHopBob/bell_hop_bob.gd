@@ -176,7 +176,7 @@ func _on_hearing_body_exited(body: Node3D) -> void:
 
 func _on_kill_body_entered(body: Node3D) -> void:
 	if body.name == 'Player':
-		get_tree().change_scene_to_file("res://Scenes/Ui/menus/main_menu/main_menu.tscn")
+		get_tree().change_scene_to_file('res://Scenes/Ui/menus/main_menu/main_menu_with_animations.tscn')
 		print_debug('Player Killed')
 		pass
 		
