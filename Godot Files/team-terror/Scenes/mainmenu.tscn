@@ -25,19 +25,19 @@ texture = ExtResource("2_ir2vl")
 
 [node name="play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 250.0
-offset_right = 401.0
-offset_bottom = 400.0
+offset_left = 34.0
+offset_top = 222.0
+offset_right = 399.0
+offset_bottom = 372.0
 texture_normal = ExtResource("2_712sj")
 stretch_mode = 0
 
 [node name="options" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = -36.0
-offset_top = 348.0
-offset_right = 552.0
-offset_bottom = 505.0
+offset_left = -35.0
+offset_top = 330.0
+offset_right = 553.0
+offset_bottom = 487.0
 texture_normal = ExtResource("3_24cm3")
 stretch_mode = 0
 
