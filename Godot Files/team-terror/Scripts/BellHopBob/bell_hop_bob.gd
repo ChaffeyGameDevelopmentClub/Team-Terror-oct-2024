@@ -15,8 +15,9 @@ var player = null
 @onready var testingTimer = $"Testing Timer"
 var seen : bool
 var idleTimerStarted : bool
+var stalkingTimerStarted : bool
 var randomPos
-
+var wandertime
 #States
 enum ENTITY_STATE{
 	IDLE,
@@ -29,6 +30,7 @@ enum ENTITY_STATE{
 
 func _ready():
 	randomPos = setRandomPos()
+	wandertime = wanderTimer.wait_time
 func _process(delta):
 	#reset velocity
 	velocity = Vector3.ZERO
@@ -66,29 +68,33 @@ func _process(delta):
 			#Get Players Pos
 			setTarget(playerNode.global_transform.origin)
 			#Move To
+			
 			look_at(playerNode.global_transform.origin)
 			moveTo()
 			#Start Timer
-			stalkingTimer.start()
+			if stalkingTimerStarted == false:
+				stalkingTimer.start()
+				stalkingTimerStarted = true
+			
 			
 		3: #Wandering
 			#Find random Pos
 			if(abs(randomPos.x - global_position.x) <= 10 and abs(randomPos.z - global_position.z) <= 10) or wanderTimer.time_left <=0:
 				randomPos = setRandomPos()
-				wanderTimer.wait_time = 60.0
+				wanderTimer.wait_time = wandertime
 				wanderTimer.start()
 			#set Target
 			setTarget(randomPos)
 			#Move to
 			moveTo()
-			look_at(global_transform.origin + velocity)
+			lookAt(global_transform.origin + velocity)
 			#on target Reached reset or on timeout
 
 	move_and_slide()
 
 #Functions
 func lookAt(target):
-	self.rotate_y(1)
+	look_at(Vector3(target.x,2.6,target.z))
 
 func setTarget(target):
 	nav_agent.set_target_position(target)
@@ -108,7 +114,12 @@ func setRandomPos():
 func _on_idle_timer_timeout() -> void:
 	#switch to wander
 	print_debug("Idle Timeout")
-	entity_state = 3
+	var randint = randi_range(1,2)
+	if randint == 1 :
+		#chance to switch to stalking
+		entity_state = 2
+	else:
+		entity_state = 3
 	idleTimerStarted = false
 
 func _on_seen_timer_timeout() -> void:
@@ -117,6 +128,7 @@ func _on_seen_timer_timeout() -> void:
 
 func _on_stalking_timer_timeout() -> void:
 	#Swtich to wander
+	stalkingTimerStarted = false
 	entity_state = 3
 
 func _on_wander_timer_timeout() -> void:
@@ -135,6 +147,26 @@ func _on_testing_timer_timeout() -> void:
 		print_debug("wandering")
 	#print(idleTimer.time_left)
 	print_debug(nav_agent.distance_to_target())
+
+func _on_hearing_body_entered(body: Node3D) -> void:
+	#set to chase
+	if body.name == 'Player':
+		entity_state = 1
+
+
+func _on_hearing_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
+
+func _on_kill_body_entered(body: Node3D) -> void:
+	if body.name == 'Player':
+		#kill player
+		print_debug('Player Killed')
+		pass
+		
+
+
+func _on_kill_body_exited(body: Node3D) -> void:
+	pass # Replace with function body.
 
 '
 func look_at(target):

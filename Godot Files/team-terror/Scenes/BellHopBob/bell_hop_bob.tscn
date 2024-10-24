@@ -1,7 +1,7 @@
 [gd_scene load_steps=81 format=4 uid="uid://dpoy5n1t5pgvp"]
 
 [ext_resource type="Script" path="res://Scripts/BellHopBob/bell_hop_bob.gd" id="1_4qfro"]
-[ext_resource type="Texture2D" uid="uid://csldjmy50cfql" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_head.png" id="1_owukb"]
+[ext_resource type="Texture2D" uid="uid://ct2eorc53wdb3" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_head.png" id="1_owukb"]
 [ext_resource type="Texture2D" uid="uid://2bf0kwntbcrq" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_NeckBob.png" id="2_yranc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpjit"]
@@ -4005,25 +4005,24 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf32k"]
-radius = 0.9042
 height = 4.1196
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_of5x1"]
 height = 1.85989
-radius = 2.84429
+radius = 3.38754
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6lnwf"]
 height = 3.37968
-radius = 1.66494
+radius = 1.37251
 
 [node name="BellHopBob" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "seenTimer", "stalkingTimer", "wanderTimer", "idleTimer", "sight")]
 script = ExtResource("1_4qfro")
 nav_agent = NodePath("NavigationAgent3D")
-seenTimer = NodePath("SeenTimer")
-stalkingTimer = NodePath("StalkingTimer")
-wanderTimer = NodePath("WanderTimer")
-idleTimer = NodePath("IdleTimer")
-sight = NodePath("Node3D/Sight")
+seenTimer = NodePath("Timers/SeenTimer")
+stalkingTimer = NodePath("Timers/StalkingTimer")
+wanderTimer = NodePath("Timers/WanderTimer")
+idleTimer = NodePath("Timers/IdleTimer")
+sight = NodePath("Senses/Sight")
 
 [node name="Armature" type="Node3D" parent="."]
 transform = Transform3D(0.32273, 0, 0, 0, 0.32273, 0, 0, 0, 0.32273, 0, -0.527433, 0)
@@ -4312,48 +4311,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.242416, 0)
 shape = SubResource("CapsuleShape3D_rf32k")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-path_desired_distance = 3.0
+path_desired_distance = 1.5
+path_postprocessing = 1
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Senses" type="Node3D" parent="."]
 
-[node name="Sight" type="RayCast3D" parent="Node3D"]
+[node name="Sight" type="RayCast3D" parent="Senses"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.376166, 0)
 target_position = Vector3(0, 0, -10)
 debug_shape_custom_color = Color(0.874344, 0.283072, 0, 1)
 debug_shape_thickness = 5
 
-[node name="Hearing" type="Area3D" parent="Node3D"]
+[node name="Hearing" type="Area3D" parent="Senses"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Hearing"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Senses/Hearing"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.205747, 0)
 shape = SubResource("CylinderShape3D_of5x1")
 
-[node name="Kill" type="Area3D" parent="Node3D"]
+[node name="Kill" type="Area3D" parent="Senses"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Kill"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Senses/Kill"]
 shape = SubResource("CylinderShape3D_6lnwf")
 
-[node name="SeenTimer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
+[node name="Timers" type="Node3D" parent="."]
 
-[node name="StalkingTimer" type="Timer" parent="."]
+[node name="SeenTimer" type="Timer" parent="Timers"]
 wait_time = 3.0
 one_shot = true
 
-[node name="WanderTimer" type="Timer" parent="."]
+[node name="StalkingTimer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="WanderTimer" type="Timer" parent="Timers"]
 wait_time = 15.0
 one_shot = true
 
-[node name="IdleTimer" type="Timer" parent="."]
+[node name="IdleTimer" type="Timer" parent="Timers"]
 one_shot = true
 
-[node name="Testing Timer" type="Timer" parent="."]
+[node name="Testing Timer" type="Timer" parent="Timers"]
 wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="SeenTimer" to="." method="_on_seen_timer_timeout"]
-[connection signal="timeout" from="StalkingTimer" to="." method="_on_stalking_timer_timeout"]
-[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
-[connection signal="timeout" from="Testing Timer" to="." method="_on_testing_timer_timeout"]
+[connection signal="body_entered" from="Senses/Hearing" to="." method="_on_hearing_body_entered"]
+[connection signal="body_exited" from="Senses/Hearing" to="." method="_on_hearing_body_exited"]
+[connection signal="body_entered" from="Senses/Kill" to="." method="_on_kill_body_entered"]
+[connection signal="body_exited" from="Senses/Kill" to="." method="_on_kill_body_exited"]
+[connection signal="timeout" from="Timers/SeenTimer" to="." method="_on_seen_timer_timeout"]
+[connection signal="timeout" from="Timers/StalkingTimer" to="." method="_on_stalking_timer_timeout"]
+[connection signal="timeout" from="Timers/WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="Timers/IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="Timers/Testing Timer" to="." method="_on_testing_timer_timeout"]
