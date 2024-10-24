@@ -1,8 +1,8 @@
 [gd_scene load_steps=81 format=4 uid="uid://dpoy5n1t5pgvp"]
 
 [ext_resource type="Script" path="res://Scripts/BellHopBob/bell_hop_bob.gd" id="1_4qfro"]
-[ext_resource type="Texture2D" uid="uid://b4x22chwpty0l" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_head.png" id="1_owukb"]
-[ext_resource type="Texture2D" uid="uid://bakvxusj0j2lv" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_NeckBob.png" id="2_yranc"]
+[ext_resource type="Texture2D" uid="uid://csldjmy50cfql" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_head.png" id="1_owukb"]
+[ext_resource type="Texture2D" uid="uid://2bf0kwntbcrq" path="res://Assets/BellHop/BellHopMonster/Bellhop_rig_NeckBob.png" id="2_yranc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpjit"]
 

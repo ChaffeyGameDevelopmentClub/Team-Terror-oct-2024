@@ -1,11 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgiay576fyrov"]
+[gd_scene load_steps=22 format=3 uid="uid://bgiay576fyrov"]
 
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Scenes/Player/player.tscn" id="1_2usqi"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/test_level_player_movement_lol.gd" id="1_tgoim"]
 [ext_resource type="PackedScene" uid="uid://mem4nbmikwfm" path="res://Transitions/door_transition.tscn" id="4_gcdxx"]
 [ext_resource type="AudioStream" uid="uid://c6bi1houv2e6x" path="res://Assets/all sfx/ambience/tick tock.mp3" id="4_qxjj1"]
 [ext_resource type="PackedScene" uid="uid://cmus8sya0goou" path="res://Scenes/Player/Test World/harmblock.tscn" id="6_cypbn"]
+[ext_resource type="PackedScene" uid="uid://blmyed4is3vev" path="res://Scenes/Player/Test World/test_door_for_opening.tscn" id="7_gnank"]
 [ext_resource type="Script" path="res://Scenes/Player/Test World/testcast.gd" id="7_uwp48"]
+[ext_resource type="PackedScene" uid="uid://bykan1uxa6dub" path="res://Scenes/items/key.tscn" id="8_mm6bu"]
+[ext_resource type="PackedScene" uid="uid://imvfbkdp7kfr" path="res://Scenes/Player/Test World/test_closed_door_for_opening.tscn" id="9_u5aca"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_phl1p"]
 sky_top_color = Color(0.727955, 0.734064, 0.739278, 1)
@@ -108,7 +111,7 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -4.26189, 0, -0.6086
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80584, 0)
 
 [node name="Node3D2" parent="." instance=ExtResource("6_cypbn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.49263, 4.92452, -51.7774)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -28.1667, 4.92452, -51.7774)
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21599, 4.34093, -33.3734)
@@ -119,3 +122,18 @@ skeleton = NodePath("RayCast3D")
 target_position = Vector3(1, -1, 1)
 debug_shape_custom_color = Color(0, 0.576471, 0, 1)
 script = ExtResource("7_uwp48")
+
+[node name="TestDoorForopening" parent="." instance=ExtResource("7_gnank")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154344, 1.57109, -16.3188)
+
+[node name="TestDoorForopening2" parent="." instance=ExtResource("7_gnank")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154344, 1.57109, -18.0397)
+
+[node name="TestDoorForopening3" parent="." instance=ExtResource("7_gnank")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.154344, 1.57109, -19.7593)
+
+[node name="Node3D3" parent="." instance=ExtResource("8_mm6bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.95078, 3.76598, -17.8565)
+
+[node name="TestDoorForopeningLocked" parent="." instance=ExtResource("9_u5aca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9366, 1.00171, -22.5021)
