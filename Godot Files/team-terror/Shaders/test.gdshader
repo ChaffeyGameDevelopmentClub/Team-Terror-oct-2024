@@ -1,6 +1,9 @@
 shader_type spatial;
 void vertex() {
-	VERTEX.y +=sin(TIME *5.0 + VERTEX.x*5.0);
+	VERTEX.y +=sin(TIME *20.0 + VERTEX.x*5.0);
+	VERTEX.x += cos(TIME * 5.0);
+	VERTEX.z += tan(TIME *3.0);
+	
 }
 void fragment() {
 	vec3 color;

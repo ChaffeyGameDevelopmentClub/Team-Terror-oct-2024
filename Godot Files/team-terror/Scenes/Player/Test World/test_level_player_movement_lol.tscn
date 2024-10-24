@@ -114,6 +114,9 @@ visible = false
 [node name="Node3D2" parent="." instance=ExtResource("6_cypbn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -28.1667, 4.92452, -51.7774)
 
+[node name="Node3D2" parent="Node3D2" instance=ExtResource("6_cypbn")]
+transform = Transform3D(2.99357, 0.196314, 0, -0.196314, 2.99357, 0, 0, 0, 3, 8.95913, 1.94348, -1.33668)
+
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.21599, 4.34093, -33.3734)
 mesh = SubResource("BoxMesh_4o7d3")
