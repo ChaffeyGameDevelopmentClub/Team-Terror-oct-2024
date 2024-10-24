@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyysy7ff5rn1w"]
+[gd_scene load_steps=9 format=3 uid="uid://dyysy7ff5rn1w"]
 
 [ext_resource type="MeshLibrary" uid="uid://kx2vuje4x2w7" path="res://Resources/MotelTileSet/MotelTileset.tres" id="1_okh3v"]
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Scenes/Player/player.tscn" id="2_l8kwe"]
 [ext_resource type="PackedScene" uid="uid://dpoy5n1t5pgvp" path="res://Scenes/BellHopBob/bell_hop_bob.tscn" id="3_hjaah"]
+[ext_resource type="PackedScene" uid="uid://degneycy7cota" path="res://Assets/MotelTileset/Lamp/lamp.tscn" id="4_s3p8q"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6cto"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -29,7 +30,6 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 2, 5), PackedInt32Arr
 
 [node name="Hide to play" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0, -4.37114e-08, 1, -0.5, 0.866025, 3.78552e-08, 0, 0, 0)
-visible = false
 light_energy = 3.085
 shadow_enabled = true
 
@@ -47,15 +47,33 @@ data = {
 }
 
 [node name="GridMap2" type="GridMap" parent="."]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 mesh_library = ExtResource("1_okh3v")
 data = {
-"cells": PackedInt32Array(131074, 2, 655361)
+"cells": PackedInt32Array(131074, 2, 655361, 131074, 3, 28, 131075, 3, 28, 131075, 2, 28, 131076, 2, 28, 131077, 2, 28, 131077, 3, 28, 131076, 3, 28, 131076, 4, 28, 131076, 5, 28, 131077, 5, 28, 131077, 4, 28, 131077, 6, 28, 131077, 7, 28, 131076, 7, 28, 131076, 6, 28, 131075, 6, 28, 131075, 5, 28, 131075, 4, 28, 131074, 4, 28, 131074, 5, 28, 131074, 6, 28, 131075, 7, 28, 131074, 7, 28, 131074, 9, 28, 131074, 10, 28, 131075, 10, 28, 131075, 9, 28, 131075, 8, 28, 131074, 8, 28, 131074, 11, 28, 131074, 12, 28, 131074, 13, 28, 131075, 13, 28, 131075, 12, 28, 131075, 11, 28, 131079, 7, 28, 131078, 6, 28)
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_l8kwe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4173, 2.86173, 9.44696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.74877, 2.86173, 9.44696)
 
 [node name="BellHopBob" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("3_hjaah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2641, 3.67722, 25.2684)
 playerNode = NodePath("../Player")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Lamp2" parent="Node3D" instance=ExtResource("4_s3p8q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 4.6, 25)
+
+[node name="Lamp" parent="Node3D" instance=ExtResource("4_s3p8q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14, 4.6, 25)
+
+[node name="Lamp3" parent="Node3D" instance=ExtResource("4_s3p8q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 27, 4.6, 22)
+
+[node name="Lamp4" parent="Node3D" instance=ExtResource("4_s3p8q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 34, 4.6, 9)
+
+[node name="Lamp5" parent="Node3D" instance=ExtResource("4_s3p8q")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 21, 4.6, 37)

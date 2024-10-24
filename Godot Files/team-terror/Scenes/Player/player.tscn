@@ -65,10 +65,12 @@ _data = {
 "player_walk_headbob": SubResource("Animation_gdao2")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Walk", "interactable", "pause", "headBobbing")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("PauseMenu", "Walk", "Run", "interactable", "pause", "headBobbing")]
 process_mode = 3
 script = ExtResource("1_n3sex")
-Walk = NodePath("Run")
+PauseMenu = NodePath("PauseMenu")
+Walk = NodePath("Walk")
+Run = NodePath("Run")
 interactable = NodePath("Neck/Camera3D/RayCast3D")
 pause = NodePath("PauseMenu")
 headBobbing = NodePath("AnimationPlayer")
