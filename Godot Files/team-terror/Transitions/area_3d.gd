@@ -1,6 +1,4 @@
-extends Area3D
+extends StaticBody3D
 
-
-func _on_body_entered(body: Node3D) -> void:
-		if body.name=="Player" and Input.is_action_pressed("interaction"):
-			SceneTransition.scene_transition_cloud("res://Scenes/Tilemap testing.tscn")
+func interact():
+	SceneTransition.scene_transition_cloud("res://Scenes/Tilemap testing.tscn")

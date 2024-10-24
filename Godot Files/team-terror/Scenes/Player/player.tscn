@@ -1,14 +1,69 @@
-[gd_scene load_steps=6 format=3 uid="uid://do73ciyy4senj"]
+[gd_scene load_steps=11 format=3 uid="uid://do73ciyy4senj"]
 
 [ext_resource type="AudioStream" uid="uid://tkgqyjo6rrr2" path="res://Assets/all sfx/Player_SFX/walk.mp3" id="1_lgmok"]
 [ext_resource type="Script" path="res://Scenes/Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
 [ext_resource type="AudioStream" uid="uid://cm8fbo34x2p86" path="res://Assets/all sfx/Player_SFX/run.mp3" id="2_iwfo3"]
+[ext_resource type="PackedScene" uid="uid://pir7fuqoy1o5" path="res://Scenes/Pause menu/pause_menu.tscn" id="4_3wc4l"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_syjgj"]
 radius = 1.99697
 height = 14.408
+
+[sub_resource type="Animation" id="Animation_8ko2k"]
+resource_name = "player_walk_headbob"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.1, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g70wq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lsqth"]
+resource_name = "player_run_headbob"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.116232, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0x24"]
+_data = {
+"RESET": SubResource("Animation_g70wq"),
+"player_run_headbob": SubResource("Animation_lsqth"),
+"player_walk_headbob": SubResource("Animation_8ko2k")
+}
 
 [node name="Player" type="Node3D"]
 
@@ -18,10 +73,19 @@ stream = ExtResource("1_lgmok")
 [node name="Run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iwfo3")
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("PauseMenu", "Walksfx", "Runsfx", "neck", "camera", "hand", "flashlight", "flashlight_timer", "interactable", "headBobbing")]
 process_mode = 3
 script = ExtResource("1_n3sex")
-Walk = NodePath("../Run")
+PauseMenu = NodePath("../PauseMenu")
+Walksfx = NodePath("../Walk")
+Runsfx = NodePath("../Run")
+neck = NodePath("Neck")
+camera = NodePath("Neck/Camera3D")
+hand = NodePath("Hand")
+flashlight = NodePath("Hand/Flashlight")
+flashlight_timer = NodePath("Hand/Flashlight/Flashlight_Battery")
+interactable = NodePath("Neck/Camera3D/Interactable")
+headBobbing = NodePath("../PlayerAnim")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
@@ -36,6 +100,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804477, -0.0661726)
 current = true
 fov = 50.0
 
+[node name="Interactable" type="RayCast3D" parent="Player/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -2, 0)
+debug_shape_custom_color = Color(0.868985, 0.868985, 0.868985, 1)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
 shape = SubResource("CapsuleShape3D_syjgj")
@@ -45,14 +114,19 @@ shape = SubResource("CapsuleShape3D_syjgj")
 [node name="Flashlight" type="SpotLight3D" parent="Player/Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929642, 0)
 light_color = Color(0.973063, 0.99249, 0.826257, 1)
-light_energy = 3.586
-light_volumetric_fog_energy = 3.0
-light_size = 3.18
-light_specular = 2.195
+light_energy = 1.647
 distance_fade_length = 18.65
-spot_range = 10.0
+spot_range = 12.0
 spot_attenuation = 2.0
-spot_angle = 35.0
+spot_angle = 23.0
 
 [node name="Flashlight_Battery" type="Timer" parent="Player/Hand/Flashlight"]
 wait_time = 30.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_3wc4l")]
+visible = false
+
+[node name="PlayerAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x0x24")
+}
