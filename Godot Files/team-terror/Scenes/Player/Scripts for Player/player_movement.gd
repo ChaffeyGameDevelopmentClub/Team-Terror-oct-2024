@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
+#they don't wrok yet but the framework doesn't crash the game
 signal update_save
-var save_file_path = "user://save/"
+var save_file_path = "user://save.save"
 var save_file_name = "PlayerSave.tres"
 var playerData= PlayerData.new()
 
@@ -50,24 +51,24 @@ var gotKey = false
 var isAnimating = false
 
 func _ready() -> void:
-	#verify_save_directory(save_file_path)
+	verify_save_directory(save_file_path)
 	flashlight_timer.start()
 	pass
 
 #you don't have enough memory in the memory card
-#func verify_save_directory(path:String):
-	#DirAccess.make_dir_absolute(path)
-	#pass
+func verify_save_directory(path:String):
+	DirAccess.make_dir_absolute(path)
+	pass
 
 #i said you do not have enough memory from the card jackass
-#func load_data():
-#	playerData = ResourceLoader.load(save_file_path, save_file_name)
-#	print("L O A D E D LOADED L O A D E D ")
+func load_data():
+	playerData = ResourceLoader.load(save_file_path, save_file_name)
+	print("L O A D E D LOADED L O A D E D ")
 
 #SAVE YOUR FUCKING GAME
-#func save():
-	#ResourceSaver.save(playerData, save_file_path + save_file_name)
-	#print("SAVED")
+func save():
+	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	print("SAVED")
 	#pass
 #literally the camera function
 
@@ -153,10 +154,10 @@ func _input(event: InputEvent) -> void:
 	#increase fov test and decrease
 	if Input.is_action_pressed("test_inp_1"):
 		camera_fov +=10
-		#save()
+		save()
 	if Input.is_action_pressed("test_inp_2"):
 		camera_fov -=10
-		#load_data()
+		load_data()
 		#emit_signal("update_save",playerData.SavePos, self.position)
 	#exits the game so you don't click on x or whatever
 	if Input.is_action_just_pressed("exit_test"):
