@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://485fjtr1kecw"]
 
 [ext_resource type="Script" path="res://Transitions/transitions.gd" id="1_qtx6t"]
-[ext_resource type="Texture2D" uid="uid://dpurm0yggq2jm" path="res://Transitions/Asset Transition/better door.png" id="2_26kr0"]
+[ext_resource type="Texture2D" uid="uid://bmukqmhbqpma" path="res://Transitions/Asset Transition/door png.png" id="2_j8ohb"]
 [ext_resource type="AudioStream" uid="uid://bi3os52hwrxt4" path="res://Assets/all sfx/door sfx/door close.mp3" id="3_64w0l"]
 [ext_resource type="AudioStream" uid="uid://btcx87rateg8r" path="res://Assets/all sfx/door sfx/door open.mp3" id="4_rwwsf"]
 
@@ -116,7 +116,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0.5, 0.532), Vector2(2, 2.128)]
+"values": [Vector2(1.88835, 2.00947), Vector2(4, 4.256)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -184,7 +184,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 position = Vector2(571, 345)
 scale = Vector2(1.88835, 2.00947)
-texture = ExtResource("2_26kr0")
+texture = ExtResource("2_j8ohb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

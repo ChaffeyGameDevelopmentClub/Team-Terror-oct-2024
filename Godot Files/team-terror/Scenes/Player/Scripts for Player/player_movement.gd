@@ -1,7 +1,4 @@
 extends CharacterBody3D
-#pause my menu idiot
-@export var PauseMenu: Control
-var paused = false
 
 #SFX
 @export var Walk: AudioStreamPlayer
@@ -31,15 +28,6 @@ const JUMP_VELOCITY = 4.5
 @onready var isFlashingdead = false
 @onready var flicker = false
 
-#Interactable distance from the player for doors and getting keys or whatever
-@export var interactable : RayCast3D
-
-#Do you have a key on spawn? no so die.
-var gotKey = false
-#Animation vars including another fucking boolean because it will play over itself
-@export var headBobbing : AnimationPlayer
-var isAnimating = false
-
 func _ready() -> void:
 	flashlight_timer.start()
 	pass
@@ -50,22 +38,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	#clamps values, for some reason it works better here so lets call it magic
 	stamina = clamp(stamina,0,max_stamina)
 
-	if get_tree().paused==false:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x*sensitivity_camera)
-			camera.rotate_x(-event.relative.y*sensitivity_camera)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event is InputEventMouseMotion:
+		neck.rotate_y(-event.relative.x*sensitivity_camera)
+		camera.rotate_x(-event.relative.y*sensitivity_camera)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(70))
 		
 		#flashlight rotate moment
-			flashlight.rotate_y(-event.relative.x*sensitivity_camera)
-			flashlight.rotation.x=camera.rotation.x
-	if get_tree().paused==true:
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		flashlight.rotate_y(-event.relative.x*sensitivity_camera)
+		flashlight.rotation.x=camera.rotation.x
 		pass
+	pass
+
 #die
 func _die():
-	#Go to game over screen
 	pass
 
 #literally the everything function
@@ -87,20 +73,6 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		#Plays the head bobbing animation while a direction is being played, it should be easy to
-		#edit within the animation tab so LOL
-		if isSprint ==false:
-			if isAnimating == false:
-				isAnimating = true
-				headBobbing.play("player_walk_headbob")
-				await(headBobbing.animation_finished)
-				isAnimating =false
-		if isSprint == true:
-			if isAnimating == false:
-				isAnimating = true
-				headBobbing.play("player_run_headbob")
-				await(headBobbing.animation_finished)
-				isAnimating =false
 		velocity.x = direction.x * player_speed
 		velocity.z = direction.z * player_speed
 	else:
@@ -117,11 +89,8 @@ func _physics_process(delta: float) -> void:
 		isTired=true
 	elif stamina>180:
 		isTired=false
+	
 	move_and_slide()
-
-func get_key():
-	gotKey = true
-	pass
 
 #input testing but we need to get rid of test inputs in the final build
 func _input(event: InputEvent) -> void:
@@ -135,20 +104,16 @@ func _input(event: InputEvent) -> void:
 		get_tree().quit()
 	#Zoom
 	if Input.is_action_just_pressed('right_click'):
-		camera_fov = 25
+		camera_fov -= 25
 	if Input.is_action_just_released('right_click'):
-		camera_fov = 50
+		camera_fov += 25
 	#Sprint
 	if Input.is_action_pressed("sprint") and isTired==false:
 		player_speed = 6
 		isSprint=true
-	elif isTired==true: 
+	else: 
 		player_speed = 2.5
 		isSprint=false
-	if Input.is_action_just_released("sprint"):
-		isSprint = false
-		player_speed = 2.5
-		pass
 	#checks if the light is on and how much energy it should have
 	if Input.is_action_just_pressed("left_click"):
 		if isFlashlighting == true and isFlashingdead==false:
@@ -172,45 +137,3 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("test3"):
 		SceneTransition.scene_transition_cloud("res://Player/Test World/test_level_player_movement_lol.tscn")
 	pass
-	#fire it out smartass
-	#This is a mess... It's all the item interactables and we're looking for the static body 3d's that we can take.
-	#Why did I do it like this? Because collider != null wasn't working. yeah. What the fuck man
-	if Input.is_action_just_pressed("interaction"):
-		#collider object gets the object so we can pull their function so like collider.die()
-		var collider= interactable.get_collider()
-		if collider is StaticBody3D:
-			#Door transition stuff, for in between areas.
-			if collider.is_in_group("door_transition"):
-				collider.interact()
-			#Door opening when in the main level using a mess of area3d
-			if collider.is_in_group("left_side_hinge"):
-				collider.left_open()
-			if collider.is_in_group("right_side_hinge"):
-				collider.right_open()
-			#Getting your keys, don't forget them next time, plays text also to be more clear
-			if collider.is_in_group("key1"):
-				get_key();
-				collider.self_destruct()
-				TextOverlay.Get_Key_Area_1()
-			#Can't open a locked door unless gotKey = true
-			if collider.is_in_group("locked_door"):
-				if gotKey == true:
-					collider.left_open()
-				else:
-					TextOverlay.Door_Locked()
-	#these functions will handle pause for now but I THINK this is the neatest it can look rn
-	if Input.is_action_just_pressed("pause"):
-		Pause()
-#Pause, completely pauses everything so you can go into options
-func Pause():
-	if get_tree().paused == false:
-		PauseMenu.show()
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
-		Engine.time_scale = 0
-
-	#else:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		#PauseMenu.hide()
-		#get_tree().paused = false
-		#Engine.time_scale = 1

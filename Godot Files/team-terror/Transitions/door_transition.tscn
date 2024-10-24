@@ -3,18 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://bbfhld8mnxdd6" path="res://Assets/Transition Door/door.glb" id="1_74v2g"]
 [ext_resource type="Script" path="res://Transitions/area_3d.gd" id="2_m4xlq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i0f13"]
-size = Vector3(0.25, 1.31445, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_c5aaf"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["door_transition"]]
+[node name="door" parent="." instance=ExtResource("1_74v2g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274722, 0.806202, 0.420311)
+
+[node name="Area3D" type="Area3D" parent="door"]
 script = ExtResource("2_m4xlq")
 
-[node name="door" parent="StaticBody3D" instance=ExtResource("1_74v2g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/Area3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.9586, 0)
+shape = SubResource("SphereShape3D_c5aaf")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.0574329, 6.02833, 0)
-shape = SubResource("BoxShape3D_i0f13")
+[connection signal="body_entered" from="door/Area3D" to="door/Area3D" method="_on_body_entered"]
