@@ -17,10 +17,10 @@ script = ExtResource("1_f0uqf")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -4.0
-offset_top = -39.0
-offset_right = 1158.0
-offset_bottom = 560.0
+offset_left = -5.0
+offset_top = -19.0
+offset_right = 1157.0
+offset_bottom = 580.0
 texture = ExtResource("2_ir2vl")
 
 [node name="play" type="TextureButton" parent="."]
