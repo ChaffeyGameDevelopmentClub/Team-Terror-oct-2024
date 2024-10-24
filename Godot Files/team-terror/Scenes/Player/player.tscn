@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://do73ciyy4senj"]
+[gd_scene load_steps=11 format=3 uid="uid://do73ciyy4senj"]
 
 [ext_resource type="AudioStream" uid="uid://tkgqyjo6rrr2" path="res://Assets/all sfx/Player_SFX/walk.mp3" id="1_lgmok"]
 [ext_resource type="Script" path="res://Scenes/Player/Scripts for Player/player_movement.gd" id="1_n3sex"]
 [ext_resource type="AudioStream" uid="uid://cm8fbo34x2p86" path="res://Assets/all sfx/Player_SFX/run.mp3" id="2_iwfo3"]
+[ext_resource type="PackedScene" uid="uid://pir7fuqoy1o5" path="res://Scenes/Pause menu/pause_menu.tscn" id="4_m65d3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_swd4v"]
 
@@ -10,10 +11,67 @@
 radius = 1.99697
 height = 14.408
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Walk")]
+[sub_resource type="Animation" id="Animation_gdao2"]
+resource_name = "player_walk_headbob"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.12, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_51mas"]
+resource_name = "player_run_headbob"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.15, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_utfy3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/Neck/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_47l20"]
+_data = {
+"RESET": SubResource("Animation_utfy3"),
+"player_run_headbob": SubResource("Animation_51mas"),
+"player_walk_headbob": SubResource("Animation_gdao2")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Walk", "interactable", "pause", "headBobbing")]
 process_mode = 3
 script = ExtResource("1_n3sex")
 Walk = NodePath("Run")
+interactable = NodePath("Neck/Camera3D/RayCast3D")
+pause = NodePath("PauseMenu")
+headBobbing = NodePath("AnimationPlayer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
@@ -27,6 +85,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804477, -0.0661726)
 [node name="Camera3D" type="Camera3D" parent="Neck"]
 current = true
 fov = 50.0
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0436193, -0.999048, 0, 0.999048, 0.0436193, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
@@ -54,3 +115,12 @@ stream = ExtResource("1_lgmok")
 
 [node name="Run" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_iwfo3")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_m65d3")]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_47l20")
+}
