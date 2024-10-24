@@ -14,15 +14,15 @@ const KEY_DELETION_TEXT : String = "Are you sure you want to remove {key} from {
 	"interact" : "Interact"
 }
 ## Show action names that are not explicitely listed in an action name map.
-@export var show_all_actions : bool = true
+@export var show_all_actions : bool = false
 @export_group("Icons")
 @export var add_button_texture : Texture2D
 @export var remove_button_texture : Texture2D
 @export_group("Built-in Actions")
 ## Shows Godot's built-in actions (action names starting with "ui_") in the tree.
-@export var show_built_in_actions : bool =false
+@export var show_built_in_actions : bool = false
 ## Prevents assigning inputs that are already assigned to Godot's built-in actions (action names starting with "ui_"). Not recommended.
-@export var catch_built_in_duplicate_inputs : bool = true
+@export var catch_built_in_duplicate_inputs : bool = false
 ## Maps the names of built-in input actions to readable names for users.
 @export var built_in_action_name_map : Dictionary = {
 	"ui_accept" : "Accept",
