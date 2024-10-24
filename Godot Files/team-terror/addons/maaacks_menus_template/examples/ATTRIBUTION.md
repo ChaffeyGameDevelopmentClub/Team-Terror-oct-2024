@@ -1,10 +1,18 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Programming
+Luna
+Miguel  
+Iris
+
+### Art
+Adrian
+Vince
+Luna
+Damian
+Iris
+Jared
 
 
 ## Sourced / Unaffiliated
