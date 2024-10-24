@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyysy7ff5rn1w"]
+[gd_scene load_steps=8 format=3 uid="uid://dyysy7ff5rn1w"]
 
 [ext_resource type="MeshLibrary" uid="uid://kx2vuje4x2w7" path="res://Resources/MotelTileSet/MotelTileset.tres" id="1_okh3v"]
 [ext_resource type="PackedScene" uid="uid://do73ciyy4senj" path="res://Scenes/Player/player.tscn" id="2_l8kwe"]
+[ext_resource type="PackedScene" uid="uid://dpoy5n1t5pgvp" path="res://Scenes/BellHopBob/bell_hop_bob.tscn" id="3_hjaah"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b6cto"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -52,3 +53,7 @@ metadata/_editor_floor_ = Vector3(0, 2, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_l8kwe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4173, 2.86173, 9.44696)
+
+[node name="BellHopBob" parent="." node_paths=PackedStringArray("playerNode") instance=ExtResource("3_hjaah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1492, 3.40222, 20.7845)
+playerNode = NodePath("../Player")

@@ -10,39 +10,31 @@
 radius = 1.99697
 height = 14.408
 
-[node name="Player" type="Node3D"]
-
-[node name="Walk" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_lgmok")
-
-[node name="Run" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_iwfo3")
-
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("Walk")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Walk")]
 process_mode = 3
 script = ExtResource("1_n3sex")
-Walk = NodePath("../Run")
+Walk = NodePath("Run")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.110713, 0)
 visible = false
 mesh = SubResource("CylinderMesh_swd4v")
 skeleton = NodePath("../..")
 
-[node name="Neck" type="Node3D" parent="Player"]
+[node name="Neck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804477, -0.0661726)
 
-[node name="Camera3D" type="Camera3D" parent="Player/Neck"]
+[node name="Camera3D" type="Camera3D" parent="Neck"]
 current = true
 fov = 50.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.370133, 0)
 shape = SubResource("CapsuleShape3D_syjgj")
 
-[node name="Hand" type="Node3D" parent="Player"]
+[node name="Hand" type="Node3D" parent="."]
 
-[node name="Flashlight" type="SpotLight3D" parent="Player/Hand"]
+[node name="Flashlight" type="SpotLight3D" parent="Hand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929642, 0)
 light_color = Color(0.973063, 0.99249, 0.826257, 1)
 light_energy = 3.586
@@ -54,5 +46,11 @@ spot_range = 10.0
 spot_attenuation = 2.0
 spot_angle = 35.0
 
-[node name="Flashlight_Battery" type="Timer" parent="Player/Hand/Flashlight"]
+[node name="Flashlight_Battery" type="Timer" parent="Hand/Flashlight"]
 wait_time = 30.0
+
+[node name="Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_lgmok")
+
+[node name="Run" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iwfo3")

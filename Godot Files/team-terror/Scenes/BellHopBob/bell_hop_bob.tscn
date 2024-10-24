@@ -4005,7 +4005,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rf32k"]
-radius = 1.15272
+radius = 0.9042
 height = 4.1196
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_of5x1"]
