@@ -31,5 +31,6 @@ func _input(event):
 	super._input(event)
 
 func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	super._ready()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
