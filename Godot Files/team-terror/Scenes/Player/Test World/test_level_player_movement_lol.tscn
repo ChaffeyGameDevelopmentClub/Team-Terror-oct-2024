@@ -109,7 +109,6 @@ transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -4.26189, 0, -0.6086
 
 [node name="Player" parent="." instance=ExtResource("1_2usqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.29432, 0)
-visible = false
 
 [node name="Node3D2" parent="." instance=ExtResource("6_cypbn")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -28.1667, 4.92452, -51.7774)
