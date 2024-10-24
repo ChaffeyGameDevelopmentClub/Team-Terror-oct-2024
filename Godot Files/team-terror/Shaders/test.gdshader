@@ -5,9 +5,9 @@ void vertex() {
 void fragment() {
 	vec3 color;
 	color.r =4.0;
-	color.g =15.0;
+	color.g =cos(TIME*2.0)+50.0;
 	color.b =9.0;
 	ALBEDO=color;
 	ROUGHNESS=1.0;
-	METALLIC=cos(TIME*5.0)+1.0;
+	METALLIC=cos(TIME*5.0)+40.0;
 }
